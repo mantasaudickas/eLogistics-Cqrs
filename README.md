@@ -5,11 +5,12 @@ This project should be small stock management tool where user can enter his own 
 make orders and print invoices. It is supposed to work from USB stick.
 
 Implementation is done using CQRS (inspired by Greg Young and Rinat Abdulin crash course in Vilnius)
-	* http://en.wikipedia.org/wiki/Command-query_separation
-	* http://martinfowler.com/bliki/CQRS.html
-	* http://elegantcode.com/2009/11/11/cqrs-la-greg-young/
-	* http://lokad.github.com/lokad-cqrs/
-	* http://abdullin.com/cqrs/
+
+* http://en.wikipedia.org/wiki/Command-query_separation
+* http://martinfowler.com/bliki/CQRS.html
+* http://elegantcode.com/2009/11/11/cqrs-la-greg-young/
+* http://lokad.github.com/lokad-cqrs/
+* http://abdullin.com/cqrs/
 
 Project does not have real database. Uses file system as a storage. 
 Since it should be single user application should not be a problem.
