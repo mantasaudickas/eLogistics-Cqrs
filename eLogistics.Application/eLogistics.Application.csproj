@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{57FA4064-F12B-4A05-894C-11F471E415D7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>eLogistics.Application</RootNamespace>
+    <AssemblyName>eLogistics.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Infragistics2.Shared.v11.1, Version=11.1.20111.2111, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.Misc.v11.1, Version=11.1.20111.2111, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v11.1, Version=11.1.20111.2111, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v11.1, Version=11.1.20111.2111, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinListBar.v11.1, Version=11.1.20111.2111, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.v11.1, Version=11.1.20111.2111, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CQRS\Client\Facades\Domain\AddressFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\ArticleFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\ArticleGroupFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\ArticleVariantFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\BankFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\CommunicationFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\CompanyFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\CountryFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\CustomerFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\OrderFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\OrderItemFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\PaymentTypeFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\SalesArticleFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\SupplierFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\SupplierInvoiceFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\ReadModelFacade.cs" />
+    <Compile Include="CQRS\Client\IHandler.cs" />
+    <Compile Include="CQRS\Client\Views\AddressView.cs" />
+    <Compile Include="CQRS\Client\Views\ArticleGroupView.cs" />
+    <Compile Include="CQRS\Client\Views\ArticleVariantView.cs" />
+    <Compile Include="CQRS\Client\Views\ArticleView.cs" />
+    <Compile Include="CQRS\Client\Views\BankView.cs" />
+    <Compile Include="CQRS\Client\Views\Base\AddressViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\ArticleGroupViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\ArticleVariantViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\ArticleViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\BankViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\CommunicationViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\CompanyViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\CountryViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\CustomerViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\OrderItemViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\OrderViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\PaymentTypeViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\SalesArticleViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\SupplierInvoiceViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\SupplierViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\CommunicationView.cs" />
+    <Compile Include="CQRS\Client\Views\CompanyView.cs" />
+    <Compile Include="CQRS\Client\Views\CountryView.cs" />
+    <Compile Include="CQRS\Client\Views\CustomerView.cs" />
+    <Compile Include="CQRS\Client\Views\OrderItemView.cs" />
+    <Compile Include="CQRS\Client\Views\OrderView.cs" />
+    <Compile Include="CQRS\Client\Views\PaymentTypeView.cs" />
+    <Compile Include="CQRS\Client\Views\SalesArticleView.cs" />
+    <Compile Include="CQRS\Client\Views\SupplierInvoiceView.cs" />
+    <Compile Include="CQRS\Client\Views\SupplierView.cs" />
+    <Compile Include="CQRS\Client\Views\View.cs" />
+    <Compile Include="CQRS\Commands\AddressCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\ArticleCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\ArticleGroupCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\ArticleVariantCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\BankCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\CommunicationCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\CompanyCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\CountryCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\CustomerCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\OrderCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\OrderItemCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\PaymentTypeCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\SalesArticleCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\SupplierCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\SupplierInvoiceCommands.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\DiscountType.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\DataTransferObject.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\DataTransferObjectDescriptor.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\AddressDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\ArticleDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\ArticleGroupDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\ArticleVariantDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\BankDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\CommunicationDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\CompanyDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\CountryDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\CustomerDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\OrderDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\OrderItemDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\PaymentTypeDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\SalesArticleDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\SupplierDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\SupplierInvoiceDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\IDtoDescriptorProvider.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\AddressMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\ArticleGroupMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\ArticleMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\ArticleVariantMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\BankMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\CommunicationMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\CompanyMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\CountryMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\CustomerMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\OrderItemMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\OrderMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\PaymentTypeMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\SalesArticleMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\SupplierInvoiceMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\SupplierMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Messages.cs" />
+    <Compile Include="CQRS\Interfaces\Owner.cs" />
+    <Compile Include="CQRS\Interfaces\BankAccount.cs" />
+    <Compile Include="CQRS\MessageBus.cs" />
+    <Compile Include="CQRS\Commands\Command.cs" />
+    <Compile Include="CQRS\IMessage.cs" />
+    <Compile Include="CQRS\Service\Domain\Article.cs" />
+    <Compile Include="CQRS\Service\Domain\ArticleGroup.cs" />
+    <Compile Include="CQRS\Service\Domain\ArticleVariant.cs" />
+    <Compile Include="CQRS\Service\Domain\Bank.cs" />
+    <Compile Include="CQRS\Service\Domain\Customer.cs" />
+    <Compile Include="CQRS\Service\Domain\Order.cs" />
+    <Compile Include="CQRS\Service\Domain\OrderItem.cs" />
+    <Compile Include="CQRS\Service\Domain\SalesArticle.cs" />
+    <Compile Include="CQRS\Service\Domain\States\AddressState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\ArticleGroupState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\ArticleState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\ArticleVariantState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\BankState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\CommunicationState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\CompanyState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\CountryState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\CustomerState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\OrderItemState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\OrderState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\PaymentTypeState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\SalesArticleState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\State.cs" />
+    <Compile Include="CQRS\Service\Domain\States\SupplierInvoiceState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\SupplierState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\Supplier.cs" />
+    <Compile Include="CQRS\Service\Domain\SupplierInvoice.cs" />
+    <Compile Include="CQRS\Service\Events\AddressEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\ArticleEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\ArticleGroupEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\ArticleVariantEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\BankEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\CommunicationEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\CompanyEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\CountryEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\CustomerEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\OrderEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\OrderItemEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\SalesArticleEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\SupplierInvoiceEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\ArticleGroupHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\ArticleHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\ArticleVariantHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\OrderHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\OrderItemHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\SalesArticleHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\SupplierInvoiceHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\ServiceMediator.cs" />
+    <Compile Include="CQRS\Service\Storage\FileEventStore.cs" />
+    <Compile Include="CQRS\Service\Storage\FileReadModelStore.cs" />
+    <Compile Include="CQRS\Service\Storage\IReadModelStore.cs" />
+    <Compile Include="CQRS\Service\Storage\MemoryEventStore.cs" />
+    <Compile Include="CQRS\Service\Storage\IEventStore.cs" />
+    <Compile Include="CQRS\Service\Events\PaymentTypeEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\SupplierEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\AddressHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\BankHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\CommandHandler.cs" />
+    <Compile Include="CQRS\Service\Handlers\CommunicationHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\CompanyHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\CountryHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\CustomerHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\PaymentTypeHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\SupplierHandler.Generated.cs" />
+    <Compile Include="CQRS\ObjectFactory.cs" />
+    <Compile Include="CQRS\Service\Storage\MemoryReadModelStore.cs" />
+    <Compile Include="CQRS\Service\Storage\Repository.cs" />
+    <Compile Include="CQRS\Service\Domain\Address.cs" />
+    <Compile Include="CQRS\Service\Domain\Communication.cs" />
+    <Compile Include="CQRS\Interfaces\CommunicationType.cs" />
+    <Compile Include="CQRS\Service\Domain\Company.cs" />
+    <Compile Include="CQRS\Service\Domain\Country.cs" />
+    <Compile Include="CQRS\Service\Domain\AggregateRoot.cs" />
+    <Compile Include="CQRS\Service\Domain\PaymentType.cs" />
+    <Compile Include="CQRS\Service\Events\Event.cs" />
+    <Compile Include="CQRS\Service\Storage\IRepository.cs" />
+    <Compile Include="CQRS\Service\ServiceMediator.Generated.cs" />
+    <Compile Include="Tests\AddressTests.cs" />
+    <Compile Include="Tests\DomainSerialization.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Domain\EditModel.cs" />
+    <Compile Include="UI\Domain\PaymentTypeEditModel.cs" />
+    <Compile Include="UI\Forms\ArticleGroupListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\ArticleGroupListForm.Designer.cs">
+      <DependentUpon>ArticleGroupListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\ArticleListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\ArticleListForm.Designer.cs">
+      <DependentUpon>ArticleListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\CustomerListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\CustomerListForm.Designer.cs">
+      <DependentUpon>CustomerListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\OrderListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\OrderListForm.Designer.cs">
+      <DependentUpon>OrderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\PaymentTypeEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\PaymentTypeEditForm.Designer.cs">
+      <DependentUpon>PaymentTypeEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\PaymentTypeListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\PaymentTypeListForm.Designer.cs">
+      <DependentUpon>PaymentTypeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\SupplierInvoiceListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\SupplierInvoiceListForm.Designer.cs">
+      <DependentUpon>SupplierInvoiceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\SupplierListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\SupplierListForm.Designer.cs">
+      <DependentUpon>SupplierListForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\Forms\ArticleGroupListForm.resx">
+      <DependentUpon>ArticleGroupListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\PaymentTypeEditForm.resx">
+      <DependentUpon>PaymentTypeEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\PaymentTypeListForm.resx">
+      <DependentUpon>PaymentTypeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="CQRS\CQRS.map" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

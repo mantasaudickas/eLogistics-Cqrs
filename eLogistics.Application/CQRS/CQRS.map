@@ -1,0 +1,265 @@
+﻿#eLogistics.Application.CQRS
+
+@Address
+!Create(Guid addressId, Owner owner, Guid ownerId)
+?Created(Guid addressId, Owner owner, Guid ownerId)
+
+!ChangeCountry(Guid countryId)
+?CountryChanged(Guid countryId)
+
+!ChangeCity(string city)
+?CityChanged(string city)
+
+!ChangeStreet(string street, string houseNo)
+?StreetChanged(string street, string houseNo)
+
+!ChangePostalCode(string postalCode)
+?PostalCodeChanged(string postalCode)
+
+!ChangeNote(string note)
+?NoteChanged(string note)
+
+@PaymentType
+!Create(Guid paymentTypeId)
+?Created(Guid paymentTypeId)
+
+!ChangeName(string name)
+?NameChanged(string name)
+
+!ChangeIsCredit(bool isCredit)
+?IsCreditChanged(bool isCredit)
+
+!Delete()
+?Deleted()
+
+@Communication
+!Create(Guid communicationId, Owner owner, Guid ownerId)
+?Created(Guid communicationId, Owner owner, Guid ownerId)
+
+!ChangeValue(CommunicationType communicationType, string value)
+?ValueChanged(CommunicationType communicationType, string value)
+
+!ChangeNote(string note)
+?NoteChanged(string note)
+
+@Country
+!Create(Guid countryId)
+?Created(Guid countryId)
+
+!ChangeName(string name)
+?NameChanged(string name)
+
+@Bank
+!Create(Guid bankId)
+?Created(Guid bankId)
+
+!ChangeName(string name)
+?NameChanged(string name)
+
+!ChangeBankCode(string code)
+?BankCodeChanged(string code)
+
+!ChangeBankSwiftCode(string swiftCode)
+?BankSwiftCodeChanged(string swiftCode)
+
+!ChangeNote(string note)
+?NoteChanged(string note)
+
+@Company
+!Create(Guid companyId)
+?Created(Guid companyId)
+
+!ChangeName(string name)
+?NameChanged(string name)
+
+!ChangeCompanyCode(string companyCode, string companyVatCode)
+?CompanyCodeChanged(string companyCode, string companyVatCode)
+
+!ChangeContactPerson(string contactPersonName, string contactPhoneNo)
+?ContactPersonChanged(string contactPersonName, string contactPhoneNo)
+
+!ChangeNote(string note)
+?NoteChanged(string note)
+
+!AddAddress(Guid* addressId)
+?AddressAdded(Guid* addressId)
+
+!RemoveAddress(Guid* addressId)
+?AddressRemoved(Guid* addressId)
+
+!AddCommunication(Guid* communicationId)
+?CommunicationAdded(Guid* communicationId)
+
+!RemoveCommunication(Guid* communicationId)
+?CommunicationRemoved(Guid* communicationId)
+
+@Supplier
+!Create(Guid supplierId)
+?Created(Guid supplierId)
+
+!ChangeName(string name)
+?NameChanged(string name)
+
+!AddCompany(Guid companyId)
+?CompanyAdded(Guid companyId)
+
+!RemoveCompany(Guid companyId)
+?CompanyRemoved(Guid companyId)
+
+!ChangeNote(string note)
+?NoteChanged(string note)
+
+!AddBankAccount(BankAccount* bankAccount)
+?BankAccountAdded(BankAccount* bankAccount)
+
+!RemoveBankAccount(BankAccount* bankAccount)
+?BankAccountRemoved(BankAccount* bankAccount)
+
+@Customer
+!Create(Guid customerId)
+?Created(Guid customerId)
+
+!ChangeName(string name)
+?NameChanged(string name)
+
+!AddCompany(Guid companyId)
+?CompanyAdded(Guid companyId)
+
+!RemoveCompany(Guid companyId)
+?CompanyRemoved(Guid companyId)
+
+!ChangeNote(string note)
+?NoteChanged(string note)
+
+!AddBankAccount(BankAccount* bankAccount)
+?BankAccountAdded(BankAccount* bankAccount)
+
+!RemoveBankAccount(BankAccount* bankAccount)
+?BankAccountRemoved(BankAccount* bankAccount)
+
+!AddPaymentType(Guid* paymentTypeId)
+?PaymentTypeAdded(Guid* paymentTypeId)
+
+!RemovePaymentType(Guid* paymentTypeId)
+?PaymentTypeRemoved(Guid* paymentTypeId)
+
+@ArticleGroup
+!Create(Guid articleGroupId)
+?Created(Guid articleGroupId)
+
+!ChangeName(string name)
+?NameChanged(string name)
+
+!ChangeNote(string note)
+?NoteChanged(string note)
+
+@Article
+!Create(Guid articleId)
+?Created(Guid articleId)
+
+!ChangeArticleGroup(Guid articleGroupId)
+?ArticleGroupChanged(Guid articleGroupId)
+
+!ChangeName(string name)
+?NameChanged(string name)
+
+!ChangeManufacturer(string manufacturer)
+?ManufacturerChanged(string manufacturer)
+
+!ChangeModelName(string modelName)
+?ModelNameChanged(string modelName)
+
+!ChangeQuantityUnitName(string quantityUnitName)
+?QuantityUnitNameChanged(string quantityUnitName)
+
+!MarkArticleAsInternal()
+?ArticleMarkedAsInternal()
+
+!UnmarkArticleAsInternal()
+?ArticleUnmarkedAsInternal()
+
+!ChangeNote(string note)
+?NoteChanged(string note)
+
+@ArticleVariant
+!Create(Guid articleVariantId, Guid articleId)
+?Created(Guid articleVariantId, Guid articleId)
+
+!ChangePrice(decimal price, byte vat)
+?PriceChanged(decimal price, byte vat)
+
+!AddBarcode(string barcode)
+?BarcodeAdded(string barcode)
+
+!RemoveBarcode(string barcode)
+?BarcodeRemoved(string barcode)
+
+!AddArticleAttribute(string* attribute)
+?ArticleAttributeAdded(string* attribute)
+
+!RemoveArticleAttribute(string* attribute)
+?ArticleAttributeRemoved(string* attribute)
+
+@SupplierInvoice
+!Create(Guid supplierInvoiceId, Guid supplierId)
+?Created(Guid supplierInvoiceId, Guid supplierId)
+
+!ChangeInvoiceNo(string invoiceNo)
+?InvoiceNoChanged(string invoiceNo)
+
+!ChangeInvoiceDate(DateTime invoiceDate)
+?InvoiceDateChanged(DateTime invoiceDate)
+
+!ChangeInvoicePaymentDate(DateTime paymentDate)
+?InvoicePaymentDateChanged(DateTime paymentDate)
+
+!ChangeNote(string note)
+?NoteChanged(string note)
+
+@SalesArticle
+!Create(Guid salesArticleId)
+?Created(Guid salesArticleId)
+
+!ChangeSupplierInvoice(Guid supplierInvoiceId)
+?SupplierInvoiceChanged(Guid supplierInvoiceId)
+
+!ChangeArticleVariant(Guid articleVariantId)
+?ArticleVariantChanged(Guid articleVariantId)
+
+!ChangeQuantity(int quantity)
+?QuantityChanged(int quantity)
+
+!ChangePrice(decimal price, byte vat)
+?PriceChanged(decimal price, byte vat)
+
+@Order
+!Create(Guid orderId)
+?Created(Guid orderId)
+
+!ChangeCustomer(Guid customerId)
+?CustomerChanged(Guid customerId)
+
+@OrderItem
+!Create(Guid orderItemId, Guid orderId)
+?Created(Guid orderItemId, Guid orderId)
+
+!ChangeSalesArticle(Guid salesArticleId)
+?SalesArticleChanged(Guid salesArticleId)
+
+!ChangeQuantity(int quantity)
+?QuantityChanged(int quantity)
+
+!ChangePrice(decimal price, byte vat)
+?PriceChanged(decimal price, byte vat)
+
+!ChangeDiscount(DiscountType discountType, decimal discountValue)
+?DiscountChanged(DiscountType discountType, decimal discountValue)
+
+!ChangeName(string name)
+?NameChanged(string name)
+
+!MarkItemAsService(bool% isServiceItem = true)
+?ItemMarkedAsService(bool% isServiceItem = true)
+
+!UnmarkItemAsService(bool% isServiceItem = false)
+?ItemUnmarkedAsService(bool% isServiceItem = false)
