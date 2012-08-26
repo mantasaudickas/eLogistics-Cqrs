@@ -1,1 +1,1 @@
-start SimpleCQRSCodeGenerator.exe d:\DEV\eLogistics\eLogistics.Application
+start SimpleCQRSCodeGenerator.exe d:\DEV\eLogistics-Cqrs\eLogistics.Application
