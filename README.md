@@ -11,6 +11,7 @@ Implementation is done using CQRS (inspired by Greg Young and Rinat Abdulin cras
 * http://elegantcode.com/2009/11/11/cqrs-la-greg-young/
 * http://lokad.github.com/lokad-cqrs/
 * http://abdullin.com/cqrs/
+* http://cqrs.wordpress.com/
 
 Project does not have real database. Uses file system as a storage. 
 Since it should be single user application should not be a problem.
