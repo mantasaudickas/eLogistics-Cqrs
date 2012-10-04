@@ -1,0 +1,20 @@
+﻿<Window x:Class="eLogistics.Executable.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Compact ERP" Height="455" Width="707">
+    <Grid Name="gridMaster">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListView Name="listView" Grid.Column="0" MouseLeftButtonUp="ListViewMouseDown">
+            <ListViewItem Content="Mokėjimų tipai" Name="PaymentTypes"/>
+            <ListViewItem Content="Tiekėjai" Name="Suppliers"/>
+            <ListViewItem Content="Klientai" Name="Customers"/>
+            <ListViewItem Content="Prekių grupės" Name="ArticleGroups"/>
+            <ListViewItem Content="Prekės" Name="Articles"/>
+            <ListViewItem Content="Tiekėjų sąskaitos" Name="SupplierInvoices"/>
+            <ListViewItem Content="Užsakymai" Name="Orders"/>
+        </ListView>
+    </Grid>
+</Window>

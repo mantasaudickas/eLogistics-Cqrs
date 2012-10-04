@@ -1,0 +1,15 @@
+﻿<Window x:Class="eLogistics.Executable.Windows.PaymentTypeEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Mokėjimų tipai" Height="160" Width="461" ResizeMode="CanMinimize">
+    <Grid>
+        <TextBox Name="textName" HorizontalAlignment="Left" Height="23" Margin="147,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Path=Name}"/>
+        <CheckBox HorizontalAlignment="Left" Margin="147,57,0,0" VerticalAlignment="Top" Width="113" IsChecked="{Binding Path=IsCredit}"/>
+
+        <Label Content="Mokėjimo tipas:" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top"/>
+        <Label Content="Kreditinis mokėjimas:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+
+        <Button HorizontalAlignment="Left" Margin="288,97,0,0" VerticalAlignment="Top" Width="75" Content="Ok" Click="OnButtonOkClick"/>
+        <Button HorizontalAlignment="Left" Margin="368,97,0,0" VerticalAlignment="Top" Width="75" Content="Cancel" Click="OnButtonCancelClick"/>
+    </Grid>
+</Window>

@@ -24,6 +24,7 @@ namespace eLogistics.Application.UI.Domain
                 {
                     Dto.Name = value;
                     this.Send(new PaymentTypeCommands.ChangeName(Dto.PaymentTypeId, value));
+                    this.RaisePropertyChanged();
                 }
             }
         }
@@ -37,6 +38,7 @@ namespace eLogistics.Application.UI.Domain
                 {
                     Dto.IsCredit = value;
                     this.Send(new PaymentTypeCommands.ChangeIsCredit(Dto.PaymentTypeId, value));
+                    this.RaisePropertyChanged();
                 }
             }
         }

@@ -7,12 +7,12 @@ namespace eLogistics.Application.UI.Forms
 {
     public partial class PaymentTypeEditForm : Form
     {
-        private PaymentTypeEditModel _editModel;
-
         public PaymentTypeEditForm()
         {
             InitializeComponent();
         }
+
+        private PaymentTypeEditModel _editModel;
 
         public PaymentTypeDto CurrentObject { get { return _editModel.Dto; } }
 

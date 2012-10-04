@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using eLogistics.Application.CQRS;
 using eLogistics.Application.CQRS.Commands;
 using eLogistics.Application.CQRS.Interfaces.Dto;
@@ -7,7 +9,7 @@ using eLogistics.Application.CQRS.Service;
 
 namespace eLogistics.Application.UI.Domain
 {
-    public abstract class EditModel<TDto>
+    public abstract class EditModel<TDto> : INotifyPropertyChanged
         where TDto : DataTransferObject, new()
     {
         private readonly List<Command> _changeCommands = new List<Command>();
@@ -78,5 +80,19 @@ namespace eLogistics.Application.UI.Domain
                 }
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            this.OnPropertyChanged(propertyName);
+        }
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }
