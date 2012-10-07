@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="eLogistics.Executable.Windows.PaymentTypeListWindow"
+﻿<UserControl x:Class="eLogistics.Executable.Windows.CountryListWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Mokėjimų tipai" Grid.Column="0" VerticalContentAlignment="Center"/>
+            <Label Content="Valstybės" Grid.Column="0" VerticalContentAlignment="Center"/>
             <Button Grid.Column="1" Content="+" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="buttonAdd" Click="OnAddItem"/>
             <Button Grid.Column="2" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="buttonRemove" Click="OnRemoveItem"/>
         </Grid>
@@ -34,9 +34,6 @@
                     <DockPanel HorizontalAlignment="Stretch" Margin="5,5,5,5">
                         <DockPanel HorizontalAlignment="Stretch">
                             <TextBlock Text="{Binding Name}"/>
-                        </DockPanel>
-                        <DockPanel HorizontalAlignment="Right">
-                            <CheckBox IsChecked="{Binding IsCredit}" IsHitTestVisible="False" Focusable="False"/>
                         </DockPanel>
                     </DockPanel>
                 </DataTemplate>

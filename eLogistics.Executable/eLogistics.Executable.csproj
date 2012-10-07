@@ -54,6 +54,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\BankController.cs" />
+    <Compile Include="Controllers\ListViewController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\ListBoxController.cs" />
+    <Compile Include="Windows\BankListWindow.xaml.cs">
+      <DependentUpon>BankListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\BankEditWindow.xaml.cs">
+      <DependentUpon>BankEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CountryEditWindow.xaml.cs">
+      <DependentUpon>CountryEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CountryListWindow.xaml.cs">
+      <DependentUpon>CountryListWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\PaymentTypeEditWindow.xaml.cs">
       <DependentUpon>PaymentTypeEditWindow.xaml</DependentUpon>
     </Compile>
@@ -72,6 +88,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\BankListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\BankEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\CountryEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\CountryListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\PaymentTypeEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

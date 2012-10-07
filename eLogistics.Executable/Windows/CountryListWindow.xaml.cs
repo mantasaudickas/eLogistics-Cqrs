@@ -6,13 +6,13 @@ using eLogistics.Executable.Controllers;
 namespace eLogistics.Executable.Windows
 {
     /// <summary>
-    /// Interaction logic for PaymentTypeListWindow.xaml
+    /// Interaction logic for CountryListWindow.xaml
     /// </summary>
-    public partial class PaymentTypeListWindow
+    public partial class CountryListWindow
     {
-        private PaymentTypesController _controller;
+        private CountryController _controller;
 
-        public PaymentTypeListWindow()
+        public CountryListWindow()
         {
             InitializeComponent();
 
@@ -23,11 +23,11 @@ namespace eLogistics.Executable.Windows
         {
             base.OnInitialized(e);
 
-            _controller = new PaymentTypesController(this.listItems);
+            _controller = new CountryController(this.listItems);
             _controller.Init();
         }
 
-        public IList<PaymentTypeEditModel> Items { get { return _controller.ListBoxItems; } }
+        public IList<CountryEditModel> Items { get { return _controller.ListBoxItems; } }
 
         private void OnAddItem(object sender, System.Windows.RoutedEventArgs e)
         {

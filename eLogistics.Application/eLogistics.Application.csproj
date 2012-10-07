@@ -251,6 +251,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Domain\BankEditModel.cs" />
+    <Compile Include="UI\Domain\CountryEditModel.cs" />
     <Compile Include="UI\Domain\EditModel.cs" />
     <Compile Include="UI\Domain\PaymentTypeEditModel.cs" />
     <Compile Include="UI\Forms\ArticleGroupListForm.cs">

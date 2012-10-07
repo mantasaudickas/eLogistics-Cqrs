@@ -40,6 +40,12 @@ namespace eLogistics.Executable
                     case "PaymentTypes":
                         userControl = new PaymentTypeListWindow();
                         break;
+                    case "Countries":
+                        userControl = new CountryListWindow();
+                        break;
+                    case "Banks":
+                        userControl = new BankListWindow();
+                        break;
                     case "Suppliers":
                         userControl = new SuppliersPage();
                         break;

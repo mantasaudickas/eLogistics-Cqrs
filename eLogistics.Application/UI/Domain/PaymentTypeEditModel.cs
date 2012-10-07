@@ -6,6 +6,10 @@ namespace eLogistics.Application.UI.Domain
 {
     public class PaymentTypeEditModel : EditModel<PaymentTypeDto>
     {
+        public PaymentTypeEditModel()
+        {
+        }
+
         public PaymentTypeEditModel(PaymentTypeDto paymentTypeDto) : base(paymentTypeDto)
         {
             if (this.CreatedNew)
@@ -43,10 +47,8 @@ namespace eLogistics.Application.UI.Domain
             }
         }
 
-        public void Delete()
+        protected override void OnDelete()
         {
-            this.ClearChanges();
-
             if (!this.CreatedNew)
                 this.Send(new PaymentTypeCommands.Delete(Dto.PaymentTypeId));
         }

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
 using eLogistics.Application.CQRS;
 using eLogistics.Application.CQRS.Commands;
 using eLogistics.Application.CQRS.Interfaces.Dto;
@@ -12,12 +15,22 @@ namespace eLogistics.Application.UI.Domain
     public abstract class EditModel<TDto> : INotifyPropertyChanged
         where TDto : DataTransferObject, new()
     {
+        #region Fields
+
         private readonly List<Command> _changeCommands = new List<Command>();
         private readonly TDto _dto;
 
+        #endregion
+
+        #region Constructor
+
+        protected EditModel() : this(null)
+        {
+        }
+
         protected EditModel(TDto dto)
         {
-            _dto = dto ;
+            _dto = dto;
             if (_dto == null)
             {
                 _dto = new TDto();
@@ -25,9 +38,27 @@ namespace eLogistics.Application.UI.Domain
             }
         }
 
-        public TDto Dto { get { return _dto; } }
+        #endregion
+
+        #region Properties
+
+        public TDto Dto
+        {
+            get { return _dto; }
+        }
+
+        public bool HasChanges { get { return _changeCommands.Count > 0; } }
+
         protected bool CreatedNew { get; private set; }
-        private IMessageBus Bus { get { return ServiceMediator.Bus; } }
+
+        private IMessageBus Bus
+        {
+            get { return ServiceMediator.Bus; }
+        }
+
+        #endregion
+
+        #region Send
 
         protected void Send<T>(T command)
             where T : Command
@@ -35,10 +66,28 @@ namespace eLogistics.Application.UI.Domain
             _changeCommands.Add(command);
         }
 
-        protected void ClearChanges()
+        #endregion
+
+        #region Delete Model
+
+        public void Delete()
+        {
+            this.ClearChanges();
+            this.OnDelete();
+        }
+
+        private void ClearChanges()
         {
             _changeCommands.Clear();
         }
+
+        protected virtual void OnDelete()
+        {
+        }
+
+        #endregion
+
+        #region Commit Model
 
         public void Commit()
         {
@@ -81,6 +130,10 @@ namespace eLogistics.Application.UI.Domain
             }
         }
 
+        #endregion
+
+        #region INotifyPropertyChanged Members
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = "")
@@ -94,5 +147,19 @@ namespace eLogistics.Application.UI.Domain
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        #endregion
+
+        public TDto CloneDto()
+        {
+            TDto clone;
+            using (MemoryStream stream = new MemoryStream())
+            {
+                DataContractSerializer serializer = new DataContractSerializer(_dto.GetType());
+                serializer.WriteObject(stream, _dto);
+                stream.Position = 0;
+                clone = (TDto) serializer.ReadObject(stream);
+            }
+            return clone;
+        }
     }
 }

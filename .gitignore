@@ -1,0 +1,6 @@
+bin
+obj
+/packages/Newtonsoft.Json.4.5.8
+/packages/NUnit.2.6.1
+*.user
+*.suo

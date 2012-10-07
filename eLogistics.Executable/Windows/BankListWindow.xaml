@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="eLogistics.Executable.Windows.PaymentTypeListWindow"
+﻿<UserControl x:Class="eLogistics.Executable.Windows.BankListWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -22,7 +22,7 @@
             <Button Grid.Column="2" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="buttonRemove" Click="OnRemoveItem"/>
         </Grid>
 
-        <ListBox Name="listItems" Grid.Row="1" ItemsSource="{Binding Path=Items}">
+        <ListBox Name="listItems" Grid.Row="1" ItemsSource="{Binding}">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -31,14 +31,21 @@
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <DockPanel HorizontalAlignment="Stretch" Margin="5,5,5,5">
-                        <DockPanel HorizontalAlignment="Stretch">
-                            <TextBlock Text="{Binding Name}"/>
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <DockPanel HorizontalAlignment="Stretch" Margin="5,5,5,5">
+                            <Grid ShowGridLines="False" RowSpan="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                            
+                                <TextBlock Text="{Binding Name}" Grid.Column="0"/>
+                                <TextBlock Text="{Binding Code}" Grid.Column="1"/>
+                                <TextBlock Text="{Binding SwiftCode}" Grid.Column="2"/>
+                            </Grid>
                         </DockPanel>
-                        <DockPanel HorizontalAlignment="Right">
-                            <CheckBox IsChecked="{Binding IsCredit}" IsHitTestVisible="False" Focusable="False"/>
-                        </DockPanel>
-                    </DockPanel>
+                    </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
