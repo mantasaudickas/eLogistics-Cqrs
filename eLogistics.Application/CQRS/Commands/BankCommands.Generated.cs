@@ -17,6 +17,19 @@ namespace eLogistics.Application.CQRS.Commands
         }
 
         [DataContract]
+        public class ChangeCountry : Command
+        {
+            [DataMember] public Guid BankId { get; private set; }
+            [DataMember] public Guid CountryId { get; private set; }
+
+            public ChangeCountry(Guid bankId, Guid countryId) : base(bankId)
+            {
+                BankId = bankId;
+                CountryId = countryId;
+            }
+        }
+
+        [DataContract]
         public class ChangeName : Command
         {
             [DataMember] public Guid BankId { get; private set; }

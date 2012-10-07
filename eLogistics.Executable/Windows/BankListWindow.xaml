@@ -2,9 +2,12 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Controls="clr-namespace:eLogistics.Executable.Windows.Controls"
+             xmlns:Behaviours="clr-namespace:eLogistics.Executable.Windows.Behaviors" mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    
+    
     <Grid ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -17,37 +20,28 @@
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Mokėjimų tipai" Grid.Column="0" VerticalContentAlignment="Center"/>
+            <Label Content="Bankai" Grid.Column="0" VerticalContentAlignment="Center"/>
             <Button Grid.Column="1" Content="+" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="buttonAdd" Click="OnAddItem"/>
             <Button Grid.Column="2" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="buttonRemove" Click="OnRemoveItem"/>
         </Grid>
 
-        <ListBox Name="listItems" Grid.Row="1" ItemsSource="{Binding}">
-            <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                </Style>
-            </ListBox.ItemContainerStyle>
-
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderBrush="Black" BorderThickness="1">
-                        <DockPanel HorizontalAlignment="Stretch" Margin="5,5,5,5">
-                            <Grid ShowGridLines="False" RowSpan="5">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="100"/>
-                                    <ColumnDefinition Width="100"/>
-                                </Grid.ColumnDefinitions>
-                            
-                                <TextBlock Text="{Binding Name}" Grid.Column="0"/>
-                                <TextBlock Text="{Binding Code}" Grid.Column="1"/>
-                                <TextBlock Text="{Binding SwiftCode}" Grid.Column="2"/>
-                            </Grid>
-                        </DockPanel>
-                    </Border>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListView Name="listItems" Grid.Row="1" ItemsSource="{Binding}" Behaviours:GridViewColumnResize.Enabled="True">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Bankas" DisplayMemberBinding="{Binding Name}" Behaviours:GridViewColumnResize.Width="*"/>
+                        <GridViewColumn Header="Banko kodas" DisplayMemberBinding="{Binding Code}" Width="100"/>
+                        <GridViewColumn Header="Banko Swift kodas" DisplayMemberBinding="{Binding SwiftCode}" Width="100"/>
+                        <GridViewColumn Header="Šalis">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Controls:CountryListComboBox SelectedValue="{Binding CountryId}" IsHitTestVisible="False" Focusable="False" Width="100"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

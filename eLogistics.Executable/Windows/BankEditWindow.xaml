@@ -1,19 +1,23 @@
 ﻿<Window x:Class="eLogistics.Executable.Windows.BankEditWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Bankai" Height="222" Width="464" ResizeMode="CanMinimize">
+        xmlns:Controls="clr-namespace:eLogistics.Executable.Windows.Controls" 
+        Title="Bankai" Height="234" Width="464" ResizeMode="CanMinimize">
     <Grid>
-        <TextBox Name="textName" HorizontalAlignment="Left" Height="23" Margin="147,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Path=Name}"/>
-        <TextBox x:Name="textCode" HorizontalAlignment="Left" Height="23" Margin="147,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Code}"/>
-        <TextBox x:Name="textSwiftCode" HorizontalAlignment="Left" Height="23" Margin="147,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding SwiftCode}"/>
-        <TextBox x:Name="textNotes" HorizontalAlignment="Left" Height="23" Margin="147,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Note}"/>
 
-        <Label Content="Banko pavadinimas:" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top"/>
-        <Label Content="Banko kodas:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
-        <Label Content="SWIFT kodas:" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
-        <Label Content="Pastabos:" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top"/>
+        <Controls:CountryListComboBox HorizontalAlignment="Left" Height="23" Margin="147,10,0,0" VerticalAlignment="Top" Width="296" SelectedValue="{Binding CountryId}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="147,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Path=Name}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="147,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Code}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="147,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding SwiftCode}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="147,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Note}"/>
 
-        <Button HorizontalAlignment="Left" Margin="288,152,0,0" VerticalAlignment="Top" Width="75" Content="Ok" Click="OnButtonOkClick"/>
-        <Button HorizontalAlignment="Left" Margin="368,152,0,0" VerticalAlignment="Top" Width="75" Content="Cancel" Click="OnButtonCancelClick"/>
+        <Label Content="Šalis:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Banko pavadinimas:" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top"/>
+        <Label Content="Banko kodas:" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top"/>
+        <Label Content="SWIFT kodas:" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pastabos:" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top"/>
+
+        <Button HorizontalAlignment="Left" Margin="288,172,0,0" VerticalAlignment="Top" Width="75" Content="Ok" Click="OnButtonOkClick"/>
+        <Button HorizontalAlignment="Left" Margin="368,172,0,0" VerticalAlignment="Top" Width="75" Content="Cancel" Click="OnButtonCancelClick"/>
     </Grid>
 </Window>

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{57FA4064-F12B-4A05-894C-11F471E415D7}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>eLogistics.Application</RootNamespace>
     <AssemblyName>eLogistics.Application</AssemblyName>
@@ -33,6 +33,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Infragistics2.Shared.v11.1, Version=11.1.20111.2111, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
@@ -67,6 +70,7 @@
     <Compile Include="CQRS\Client\Facades\Domain\ArticleGroupFacade.Generated.cs" />
     <Compile Include="CQRS\Client\Facades\Domain\ArticleVariantFacade.Generated.cs" />
     <Compile Include="CQRS\Client\Facades\Domain\BankFacade.Generated.cs" />
+    <Compile Include="CQRS\Client\Facades\Domain\CityFacade.Generated.cs" />
     <Compile Include="CQRS\Client\Facades\Domain\CommunicationFacade.Generated.cs" />
     <Compile Include="CQRS\Client\Facades\Domain\CompanyFacade.Generated.cs" />
     <Compile Include="CQRS\Client\Facades\Domain\CountryFacade.Generated.cs" />
@@ -89,6 +93,7 @@
     <Compile Include="CQRS\Client\Views\Base\ArticleVariantViewBase.Generated.cs" />
     <Compile Include="CQRS\Client\Views\Base\ArticleViewBase.Generated.cs" />
     <Compile Include="CQRS\Client\Views\Base\BankViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\Base\CityViewBase.Generated.cs" />
     <Compile Include="CQRS\Client\Views\Base\CommunicationViewBase.Generated.cs" />
     <Compile Include="CQRS\Client\Views\Base\CompanyViewBase.Generated.cs" />
     <Compile Include="CQRS\Client\Views\Base\CountryViewBase.Generated.cs" />
@@ -99,6 +104,7 @@
     <Compile Include="CQRS\Client\Views\Base\SalesArticleViewBase.Generated.cs" />
     <Compile Include="CQRS\Client\Views\Base\SupplierInvoiceViewBase.Generated.cs" />
     <Compile Include="CQRS\Client\Views\Base\SupplierViewBase.Generated.cs" />
+    <Compile Include="CQRS\Client\Views\CityView.cs" />
     <Compile Include="CQRS\Client\Views\CommunicationView.cs" />
     <Compile Include="CQRS\Client\Views\CompanyView.cs" />
     <Compile Include="CQRS\Client\Views\CountryView.cs" />
@@ -115,6 +121,7 @@
     <Compile Include="CQRS\Commands\ArticleGroupCommands.Generated.cs" />
     <Compile Include="CQRS\Commands\ArticleVariantCommands.Generated.cs" />
     <Compile Include="CQRS\Commands\BankCommands.Generated.cs" />
+    <Compile Include="CQRS\Commands\CityCommands.Generated.cs" />
     <Compile Include="CQRS\Commands\CommunicationCommands.Generated.cs" />
     <Compile Include="CQRS\Commands\CompanyCommands.Generated.cs" />
     <Compile Include="CQRS\Commands\CountryCommands.Generated.cs" />
@@ -133,6 +140,7 @@
     <Compile Include="CQRS\Interfaces\Dto\Domain\ArticleGroupDto.Generated.cs" />
     <Compile Include="CQRS\Interfaces\Dto\Domain\ArticleVariantDto.Generated.cs" />
     <Compile Include="CQRS\Interfaces\Dto\Domain\BankDto.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Dto\Domain\CityDto.Generated.cs" />
     <Compile Include="CQRS\Interfaces\Dto\Domain\CommunicationDto.Generated.cs" />
     <Compile Include="CQRS\Interfaces\Dto\Domain\CompanyDto.Generated.cs" />
     <Compile Include="CQRS\Interfaces\Dto\Domain\CountryDto.Generated.cs" />
@@ -149,6 +157,7 @@
     <Compile Include="CQRS\Interfaces\Messages\Domain\ArticleMessage.Generated.cs" />
     <Compile Include="CQRS\Interfaces\Messages\Domain\ArticleVariantMessage.Generated.cs" />
     <Compile Include="CQRS\Interfaces\Messages\Domain\BankMessage.Generated.cs" />
+    <Compile Include="CQRS\Interfaces\Messages\Domain\CityMessage.Generated.cs" />
     <Compile Include="CQRS\Interfaces\Messages\Domain\CommunicationMessage.Generated.cs" />
     <Compile Include="CQRS\Interfaces\Messages\Domain\CompanyMessage.Generated.cs" />
     <Compile Include="CQRS\Interfaces\Messages\Domain\CountryMessage.Generated.cs" />
@@ -169,6 +178,7 @@
     <Compile Include="CQRS\Service\Domain\ArticleGroup.cs" />
     <Compile Include="CQRS\Service\Domain\ArticleVariant.cs" />
     <Compile Include="CQRS\Service\Domain\Bank.cs" />
+    <Compile Include="CQRS\Service\Domain\City.cs" />
     <Compile Include="CQRS\Service\Domain\Customer.cs" />
     <Compile Include="CQRS\Service\Domain\Order.cs" />
     <Compile Include="CQRS\Service\Domain\OrderItem.cs" />
@@ -178,6 +188,7 @@
     <Compile Include="CQRS\Service\Domain\States\ArticleState.Generated.cs" />
     <Compile Include="CQRS\Service\Domain\States\ArticleVariantState.Generated.cs" />
     <Compile Include="CQRS\Service\Domain\States\BankState.Generated.cs" />
+    <Compile Include="CQRS\Service\Domain\States\CityState.Generated.cs" />
     <Compile Include="CQRS\Service\Domain\States\CommunicationState.Generated.cs" />
     <Compile Include="CQRS\Service\Domain\States\CompanyState.Generated.cs" />
     <Compile Include="CQRS\Service\Domain\States\CountryState.Generated.cs" />
@@ -196,6 +207,7 @@
     <Compile Include="CQRS\Service\Events\ArticleGroupEvents.Generated.cs" />
     <Compile Include="CQRS\Service\Events\ArticleVariantEvents.Generated.cs" />
     <Compile Include="CQRS\Service\Events\BankEvents.Generated.cs" />
+    <Compile Include="CQRS\Service\Events\CityEvents.Generated.cs" />
     <Compile Include="CQRS\Service\Events\CommunicationEvents.Generated.cs" />
     <Compile Include="CQRS\Service\Events\CompanyEvents.Generated.cs" />
     <Compile Include="CQRS\Service\Events\CountryEvents.Generated.cs" />
@@ -207,6 +219,7 @@
     <Compile Include="CQRS\Service\Handlers\ArticleGroupHandler.Generated.cs" />
     <Compile Include="CQRS\Service\Handlers\ArticleHandler.Generated.cs" />
     <Compile Include="CQRS\Service\Handlers\ArticleVariantHandler.Generated.cs" />
+    <Compile Include="CQRS\Service\Handlers\CityHandler.Generated.cs" />
     <Compile Include="CQRS\Service\Handlers\OrderHandler.Generated.cs" />
     <Compile Include="CQRS\Service\Handlers\OrderItemHandler.Generated.cs" />
     <Compile Include="CQRS\Service\Handlers\SalesArticleHandler.Generated.cs" />
@@ -243,69 +256,13 @@
     <Compile Include="CQRS\Service\ServiceMediator.Generated.cs" />
     <Compile Include="Tests\AddressTests.cs" />
     <Compile Include="Tests\DomainSerialization.cs" />
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Domain\AddressEditModel.cs" />
     <Compile Include="UI\Domain\BankEditModel.cs" />
+    <Compile Include="UI\Domain\CityEditModel.cs" />
     <Compile Include="UI\Domain\CountryEditModel.cs" />
     <Compile Include="UI\Domain\EditModel.cs" />
     <Compile Include="UI\Domain\PaymentTypeEditModel.cs" />
-    <Compile Include="UI\Forms\ArticleGroupListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\ArticleGroupListForm.Designer.cs">
-      <DependentUpon>ArticleGroupListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\ArticleListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\ArticleListForm.Designer.cs">
-      <DependentUpon>ArticleListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\CustomerListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\CustomerListForm.Designer.cs">
-      <DependentUpon>CustomerListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\OrderListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\OrderListForm.Designer.cs">
-      <DependentUpon>OrderListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\PaymentTypeEditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\PaymentTypeEditForm.Designer.cs">
-      <DependentUpon>PaymentTypeEditForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\PaymentTypeListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\PaymentTypeListForm.Designer.cs">
-      <DependentUpon>PaymentTypeListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\SupplierInvoiceListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\SupplierInvoiceListForm.Designer.cs">
-      <DependentUpon>SupplierInvoiceListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\SupplierListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\SupplierListForm.Designer.cs">
-      <DependentUpon>SupplierListForm.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -316,15 +273,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\Forms\ArticleGroupListForm.resx">
-      <DependentUpon>ArticleGroupListForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\PaymentTypeEditForm.resx">
-      <DependentUpon>PaymentTypeEditForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\PaymentTypeListForm.resx">
-      <DependentUpon>PaymentTypeListForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="CQRS\CQRS.map" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -336,9 +284,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

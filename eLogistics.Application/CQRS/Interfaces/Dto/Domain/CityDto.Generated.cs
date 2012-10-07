@@ -5,29 +5,23 @@ using eLogistics.Application.CQRS.Interfaces;
 namespace eLogistics.Application.CQRS.Interfaces.Dto.Domain
 {
     [DataContract]
-    public partial class BankDto : DataTransferObject
+    public partial class CityDto : DataTransferObject
     {
-        public BankDto()
+        public CityDto()
         {
         }
 
-        [DataMember] public Guid BankId { get; set; }
+        [DataMember] public Guid CityId { get; set; }
         [DataMember] public Guid CountryId { get; set; }
         [DataMember] public string Name { get; set; }
-        [DataMember] public string Code { get; set; }
-        [DataMember] public string SwiftCode { get; set; }
-        [DataMember] public string Note { get; set; }
 
         public override DataTransferObjectDescriptor GetDescriptor()
         {
             DataTransferObjectDescriptor descr = new DataTransferObjectDescriptor();
-            descr.Id = BankId;
-            descr.Properties["BankId"] = BankId;
+            descr.Id = CityId;
+            descr.Properties["CityId"] = CityId;
             descr.Properties["CountryId"] = CountryId;
             descr.Properties["Name"] = Name;
-            descr.Properties["Code"] = Code;
-            descr.Properties["SwiftCode"] = SwiftCode;
-            descr.Properties["Note"] = Note;
             return descr;
         }
     }

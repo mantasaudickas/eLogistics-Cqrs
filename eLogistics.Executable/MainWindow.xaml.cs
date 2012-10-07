@@ -22,7 +22,8 @@ namespace eLogistics.Executable
     /// </summary>
     public partial class MainWindow : Window
     {
-        private UserControl currentControl = null;
+        private readonly IDictionary<string, UserControl> _createdControls = new Dictionary<string, UserControl>();
+        private UserControl _currentControl;
 
         public MainWindow()
         {
@@ -35,28 +36,40 @@ namespace eLogistics.Executable
             if (item != null)
             {
                 UserControl userControl = null;
-                switch (item.Name)
+
+                if (!_createdControls.TryGetValue(item.Name, out userControl))
                 {
-                    case "PaymentTypes":
-                        userControl = new PaymentTypeListWindow();
-                        break;
-                    case "Countries":
-                        userControl = new CountryListWindow();
-                        break;
-                    case "Banks":
-                        userControl = new BankListWindow();
-                        break;
-                    case "Suppliers":
-                        userControl = new SuppliersPage();
-                        break;
-                    default:
-                        break;
+                    switch (item.Name)
+                    {
+                        case "PaymentTypes":
+                            userControl = new PaymentTypeListWindow();
+                            break;
+                        case "Countries":
+                            userControl = new CountryListWindow();
+                            break;
+                        case "Cities":
+                            userControl = new CityListWindow();
+                            break;
+                        case "Banks":
+                            userControl = new BankListWindow();
+                            break;
+                        case "Suppliers":
+                            userControl = new SuppliersPage();
+                            break;
+                        default:
+                            break;
+                    }
+
+                    if (userControl != null)
+                    {
+                        _createdControls.Add(item.Name, userControl);
+                    }
                 }
 
-                if (currentControl != null)
+                if (_currentControl != null)
                 {
-                    gridMaster.Children.Remove(currentControl);
-                    currentControl = null;
+                    gridMaster.Children.Remove(_currentControl);
+                    _currentControl = null;
                 }
 
                 if (userControl != null)
@@ -64,7 +77,7 @@ namespace eLogistics.Executable
                     gridMaster.Children.Add(userControl);
                     Grid.SetColumn(userControl, 1);
 
-                    currentControl = userControl;
+                    _currentControl = userControl;
                 }
             }
         }

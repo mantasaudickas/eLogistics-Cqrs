@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
-using System.Xml.Serialization;
 using eLogistics.Application.CQRS;
 using eLogistics.Application.CQRS.Commands;
 using eLogistics.Application.CQRS.Interfaces.Dto;

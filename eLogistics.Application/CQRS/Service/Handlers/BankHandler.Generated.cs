@@ -18,6 +18,13 @@ namespace eLogistics.Application.CQRS.Service.Handlers
             this.Repository.Save(item);
         }
 
+        public void Handle(BankCommands.ChangeCountry message)
+        {
+            Bank item = this.Repository.GetById(message.Id);
+            item.ChangeCountry(message.CountryId);
+            this.Repository.Save(item);
+        }
+
         public void Handle(BankCommands.ChangeName message)
         {
             Bank item = this.Repository.GetById(message.Id);

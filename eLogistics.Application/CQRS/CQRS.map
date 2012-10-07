@@ -49,9 +49,22 @@
 !ChangeName(string name)
 ?NameChanged(string name)
 
+@City
+!Create(Guid cityId)
+?Created(Guid cityId)
+
+!ChangeCountry(Guid countryId)
+?CountryChanged(Guid countryId)
+
+!ChangeName(string name)
+?NameChanged(string name)
+
 @Bank
 !Create(Guid bankId)
 ?Created(Guid bankId)
+
+!ChangeCountry(Guid countryId)
+?CountryChanged(Guid countryId)
 
 !ChangeName(string name)
 ?NameChanged(string name)

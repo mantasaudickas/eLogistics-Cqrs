@@ -20,6 +20,20 @@ namespace eLogistics.Application.UI.Domain
             }
         }
 
+        public Guid CountryId
+        {
+            get { return Dto.CountryId; }
+            set
+            {
+                if (value != Dto.CountryId)
+                {
+                    Dto.CountryId = value;
+                    this.Send(new BankCommands.ChangeCountry(Dto.BankId, value));
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
         public string Name
         {
             get { return Dto.Name; }

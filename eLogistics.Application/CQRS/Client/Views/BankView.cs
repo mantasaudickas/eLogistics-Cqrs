@@ -29,6 +29,13 @@ namespace eLogistics.Application.CQRS.Client.Views
             this.Save(dto);
         }
 
+        public override void Handle(BankEvents.CountryChanged message)
+        {
+            BankDto dto = this.Load(message.BankId);
+            dto.CountryId = message.CountryId;
+            this.Save(dto);
+        }
+
         public override void Handle(BankEvents.BankCodeChanged message)
         {
             BankDto dto = this.Load(message.BankId);

@@ -16,6 +16,7 @@
             <ListViewItem Content="Tiekėjų sąskaitos" Name="SupplierInvoices"/>
             <ListViewItem Content="Užsakymai" Name="Orders"/>
             <ListViewItem Content="Valstybės" Name="Countries"/>
+            <ListViewItem Content="Miestai" Name="Cities"/>
             <ListViewItem Content="Bankai" Name="Banks"/>
         </ListView>
     </Grid>

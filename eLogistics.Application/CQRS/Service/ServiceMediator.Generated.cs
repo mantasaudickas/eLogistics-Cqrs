@@ -17,6 +17,7 @@ namespace eLogistics.Application.CQRS.Service
         private static readonly PaymentTypeHandler _paymentTypeHandler = new PaymentTypeHandler(new Repository<PaymentType>(_eventStore));
         private static readonly CommunicationHandler _communicationHandler = new CommunicationHandler(new Repository<Communication>(_eventStore));
         private static readonly CountryHandler _countryHandler = new CountryHandler(new Repository<Country>(_eventStore));
+        private static readonly CityHandler _cityHandler = new CityHandler(new Repository<City>(_eventStore));
         private static readonly BankHandler _bankHandler = new BankHandler(new Repository<Bank>(_eventStore));
         private static readonly CompanyHandler _companyHandler = new CompanyHandler(new Repository<Company>(_eventStore));
         private static readonly SupplierHandler _supplierHandler = new SupplierHandler(new Repository<Supplier>(_eventStore));
@@ -33,6 +34,7 @@ namespace eLogistics.Application.CQRS.Service
         private static readonly PaymentTypeView _paymentTypeView = new PaymentTypeView(_readModelStore);
         private static readonly CommunicationView _communicationView = new CommunicationView(_readModelStore);
         private static readonly CountryView _countryView = new CountryView(_readModelStore);
+        private static readonly CityView _cityView = new CityView(_readModelStore);
         private static readonly BankView _bankView = new BankView(_readModelStore);
         private static readonly CompanyView _companyView = new CompanyView(_readModelStore);
         private static readonly SupplierView _supplierView = new SupplierView(_readModelStore);
@@ -101,15 +103,29 @@ namespace eLogistics.Application.CQRS.Service
 
             #endregion
 
+            #region City
+
+            _messageBus.Register<CityCommands.Create>(_cityHandler.Handle);
+            _messageBus.Register<CityCommands.ChangeCountry>(_cityHandler.Handle);
+            _messageBus.Register<CityCommands.ChangeName>(_cityHandler.Handle);
+
+            _messageBus.Register<CityEvents.Created>(_cityView.Handle);
+            _messageBus.Register<CityEvents.CountryChanged>(_cityView.Handle);
+            _messageBus.Register<CityEvents.NameChanged>(_cityView.Handle);
+
+            #endregion
+
             #region Bank
 
             _messageBus.Register<BankCommands.Create>(_bankHandler.Handle);
+            _messageBus.Register<BankCommands.ChangeCountry>(_bankHandler.Handle);
             _messageBus.Register<BankCommands.ChangeName>(_bankHandler.Handle);
             _messageBus.Register<BankCommands.ChangeBankCode>(_bankHandler.Handle);
             _messageBus.Register<BankCommands.ChangeBankSwiftCode>(_bankHandler.Handle);
             _messageBus.Register<BankCommands.ChangeNote>(_bankHandler.Handle);
 
             _messageBus.Register<BankEvents.Created>(_bankView.Handle);
+            _messageBus.Register<BankEvents.CountryChanged>(_bankView.Handle);
             _messageBus.Register<BankEvents.NameChanged>(_bankView.Handle);
             _messageBus.Register<BankEvents.BankCodeChanged>(_bankView.Handle);
             _messageBus.Register<BankEvents.BankSwiftCodeChanged>(_bankView.Handle);

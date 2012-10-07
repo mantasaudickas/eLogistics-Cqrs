@@ -13,6 +13,7 @@ namespace eLogistics.Application.CQRS.Service.Domain.States
 
         public override Guid Id { get { return BankId; } }
         public Guid BankId { get; private set; }
+        public Guid CountryId { get; private set; }
         public string Name { get; private set; }
         public string Code { get; private set; }
         public string SwiftCode { get; private set; }
@@ -21,6 +22,11 @@ namespace eLogistics.Application.CQRS.Service.Domain.States
         public void When(BankEvents.Created e)
         {
             this.BankId = e.BankId;
+        }
+
+        public void When(BankEvents.CountryChanged e)
+        {
+            this.CountryId = e.CountryId;
         }
 
         public void When(BankEvents.NameChanged e)

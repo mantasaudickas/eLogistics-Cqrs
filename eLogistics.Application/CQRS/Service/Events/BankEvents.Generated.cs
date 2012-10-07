@@ -17,6 +17,19 @@ namespace eLogistics.Application.CQRS.Service.Events
         }
 
         [DataContract]
+        public class CountryChanged : Event
+        {
+            [DataMember] public Guid BankId { get; private set; }
+            [DataMember] public Guid CountryId { get; private set; }
+
+            public CountryChanged(Guid bankId, Guid countryId) : base(bankId)
+            {
+                BankId = bankId;
+                CountryId = countryId;
+            }
+        }
+
+        [DataContract]
         public class NameChanged : Event
         {
             [DataMember] public Guid BankId { get; private set; }

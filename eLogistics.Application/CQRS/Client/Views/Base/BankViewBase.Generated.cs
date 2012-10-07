@@ -8,6 +8,7 @@ namespace eLogistics.Application.CQRS.Client.Views.Base
 {
     public abstract class BankViewBase : View<BankDto>
         , IHandler<BankEvents.Created>
+        , IHandler<BankEvents.CountryChanged>
         , IHandler<BankEvents.NameChanged>
         , IHandler<BankEvents.BankCodeChanged>
         , IHandler<BankEvents.BankSwiftCodeChanged>
@@ -19,6 +20,7 @@ namespace eLogistics.Application.CQRS.Client.Views.Base
         }
 
         public abstract void Handle(BankEvents.Created message);
+        public abstract void Handle(BankEvents.CountryChanged message);
         public abstract void Handle(BankEvents.NameChanged message);
         public abstract void Handle(BankEvents.BankCodeChanged message);
         public abstract void Handle(BankEvents.BankSwiftCodeChanged message);

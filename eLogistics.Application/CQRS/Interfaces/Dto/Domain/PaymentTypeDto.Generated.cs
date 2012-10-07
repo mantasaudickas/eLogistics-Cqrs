@@ -24,27 +24,5 @@ namespace eLogistics.Application.CQRS.Interfaces.Dto.Domain
             descr.Properties["IsCredit"] = IsCredit;
             return descr;
         }
-
-        #region Equality members
-
-        protected bool Equals(PaymentTypeDto other)
-        {
-            return PaymentTypeId.Equals(other.PaymentTypeId);
-        }
-
-        public override int GetHashCode()
-        {
-            return PaymentTypeId.GetHashCode();
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
-            return Equals((PaymentTypeDto) obj);
-        }
-
-        #endregion
     }
 }

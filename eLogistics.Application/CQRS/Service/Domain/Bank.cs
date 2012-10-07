@@ -15,6 +15,11 @@ namespace eLogistics.Application.CQRS.Service.Domain
             this.RaiseEvent(new BankEvents.Created(bankId));
         }
 
+        public void ChangeCountry(Guid countryId)
+        {
+            this.RaiseEvent(new BankEvents.CountryChanged(this.State.Id, countryId));
+        }
+
         public void ChangeName(string name)
         {
             this.RaiseEvent(new BankEvents.NameChanged(this.State.Id, name));

@@ -7,6 +7,10 @@ namespace eLogistics.Application.CQRS.Interfaces.Messages.Domain
     [DataContract]
     public partial class GetAddressListRequest : RequestMessage
     {
+        [DataMember] public Owner Owner { get; set; }
+
+        [DataMember] public Guid OwnerId { get; set; }
+
         [DataMember] public string Filter { get; set; }
     }
 

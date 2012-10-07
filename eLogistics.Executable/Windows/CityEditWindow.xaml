@@ -1,0 +1,16 @@
+﻿<Window x:Class="eLogistics.Executable.Windows.CityEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:eLogistics.Executable.Windows.Controls" 
+        Title="Miestai" Height="154" Width="470" ResizeMode="CanMinimize">
+    <Grid>
+        <Controls:CountryListComboBox HorizontalAlignment="Left" Height="23" Margin="147,10,0,0" VerticalAlignment="Top" Width="296" SelectedValue="{Binding CountryId}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="147,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Name}"/>
+
+        <Label Content="Valstybė:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Miestas:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+
+        <Button HorizontalAlignment="Left" Margin="288,77,0,0" VerticalAlignment="Top" Width="75" Content="Ok" Click="OnButtonOkClick"/>
+        <Button HorizontalAlignment="Left" Margin="368,77,0,0" VerticalAlignment="Top" Width="75" Content="Cancel" Click="OnButtonCancelClick"/>
+    </Grid>
+</Window>
