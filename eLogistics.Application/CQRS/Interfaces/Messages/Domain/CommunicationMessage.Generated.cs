@@ -8,6 +8,10 @@ namespace eLogistics.Application.CQRS.Interfaces.Messages.Domain
     public partial class GetCommunicationListRequest : RequestMessage
     {
         [DataMember] public string Filter { get; set; }
+
+        [DataMember] public Owner Owner { get; set; }
+
+        [DataMember] public Guid OwnerId { get; set; }
     }
 
     [DataContract]

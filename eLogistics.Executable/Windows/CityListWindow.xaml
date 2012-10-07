@@ -31,7 +31,7 @@
                         <GridViewColumn Header="Šalis">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Controls:CountryListComboBox SelectedValue="{Binding CountryId}" IsHitTestVisible="False" Focusable="False" Width="100"/>
+                                    <Controls:CountryComboBox SelectedValue="{Binding CountryId}" IsHitTestVisible="False" Focusable="False" Width="100"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

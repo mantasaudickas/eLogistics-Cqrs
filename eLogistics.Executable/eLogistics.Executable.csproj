@@ -57,6 +57,8 @@
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\BankController.cs" />
     <Compile Include="Controllers\CityController.cs" />
+    <Compile Include="Controllers\CommunicationController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\ListViewController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\ListBoxController.cs" />
@@ -69,7 +71,9 @@
     <Compile Include="Windows\AddressEditWindow.xaml.cs">
       <DependentUpon>AddressEditWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Controls\CountryListComboBox.cs" />
+    <Compile Include="Windows\Controls\CityComboBox.cs" />
+    <Compile Include="Windows\Controls\CommunicationComboBox.cs" />
+    <Compile Include="Windows\Controls\CountryComboBox.cs" />
     <Compile Include="Windows\CityEditWindow.xaml.cs">
       <DependentUpon>CityEditWindow.xaml</DependentUpon>
     </Compile>
@@ -78,6 +82,21 @@
     </Compile>
     <Compile Include="Windows\Behaviors\GridViewColumnResize.cs" />
     <Compile Include="Windows\Controls\WidthConverter.cs" />
+    <Compile Include="Windows\AddressListWindow.xaml.cs">
+      <DependentUpon>AddressListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CommunicationEditWindow.xaml.cs">
+      <DependentUpon>CommunicationEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CommunicationListWindow.xaml.cs">
+      <DependentUpon>CommunicationListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CompanyEditWindow.xaml.cs">
+      <DependentUpon>CompanyEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CompanyListWindow.xaml.cs">
+      <DependentUpon>CompanyListWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CountryEditWindow.xaml.cs">
       <DependentUpon>CountryEditWindow.xaml</DependentUpon>
     </Compile>
@@ -119,6 +138,26 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\CityListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\AddressListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\CommunicationEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\CommunicationListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\CompanyEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\CompanyListWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

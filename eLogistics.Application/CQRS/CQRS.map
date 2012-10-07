@@ -7,8 +7,8 @@
 !ChangeCountry(Guid countryId)
 ?CountryChanged(Guid countryId)
 
-!ChangeCity(string city)
-?CityChanged(string city)
+!ChangeCity(Guid cityId)
+?CityChanged(Guid cityId)
 
 !ChangeStreet(string street, string houseNo)
 ?StreetChanged(string street, string houseNo)

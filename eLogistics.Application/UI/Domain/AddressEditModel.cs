@@ -51,14 +51,14 @@ namespace eLogistics.Application.UI.Domain
             }
         }
 
-        public string City
+        public Guid CityId
         {
-            get { return Dto.City; }
+            get { return Dto.CityId; }
             set
             {
-                if (Dto.City != value)
+                if (Dto.CityId != value)
                 {
-                    Dto.City = value;
+                    Dto.CityId = value;
                     this.Send(new AddressCommands.ChangeCity(Dto.AddressId, value));
                     this.RaisePropertyChanged();
                 }

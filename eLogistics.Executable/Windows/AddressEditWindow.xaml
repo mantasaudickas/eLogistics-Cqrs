@@ -1,13 +1,24 @@
-﻿<Window x:Class="eLogistics.Executable.Windows.AddressEditWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Adresas" Height="300" Width="461" ResizeMode="CanMinimize">
+        xmlns:Controls="clr-namespace:eLogistics.Executable.Windows.Controls" x:Class="eLogistics.Executable.Windows.AddressEditWindow"
+        Title="Adresas" Height="246" Width="461" ResizeMode="CanMinimize">
     <Grid>
-        <TextBox Name="textName" HorizontalAlignment="Left" Height="23" Margin="147,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Path=Name}"/>
+        <Controls:CountryComboBox HorizontalAlignment="Left" Margin="147,19,0,0" VerticalAlignment="Top" Width="296" SelectedValue="{Binding CountryId}"/>
+        <Controls:CityComboBox HorizontalAlignment="Left" Margin="147,50,0,0" VerticalAlignment="Top" Width="296" SelectedValue="{Binding CityId}"/>
 
-        <Label Content="Valstybės pavadinimas:" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="147,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Text="{Binding Street}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="379,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" Text="{Binding HouseNo}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="147,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding PostalCode}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="147,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Note}"/>
 
-        <Button HorizontalAlignment="Left" Margin="288,240,0,0" VerticalAlignment="Top" Width="75" Content="Ok" Click="OnButtonOkClick"/>
-        <Button HorizontalAlignment="Left" Margin="368,240,0,0" VerticalAlignment="Top" Width="75" Content="Cancel" Click="OnButtonCancelClick"/>
+        <Label Content="Valstybė:" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top"/>
+        <Label Content="Miestas:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+        <Label Content="Gatvė ir Namas:" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pašto kodas:" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pastabos:" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top"/>
+
+        <Button HorizontalAlignment="Left" Margin="288,181,0,0" VerticalAlignment="Top" Width="75" Content="Ok" Click="OnButtonOkClick"/>
+        <Button HorizontalAlignment="Left" Margin="368,181,0,0" VerticalAlignment="Top" Width="75" Content="Cancel" Click="OnButtonCancelClick"/>
     </Grid>
 </Window>

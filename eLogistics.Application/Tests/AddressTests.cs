@@ -22,7 +22,7 @@ namespace eLogistics.Application.Tests
             Guid id = Guid.NewGuid();
             Guid companyId = Guid.NewGuid();
             Guid countryId = Guid.NewGuid();
-            const string city = "Kaunas";
+            Guid cityId = Guid.NewGuid();
 
             Repository<Address> repository = new Repository<Address>(ObjectFactory.Create<IEventStore>());
 
@@ -30,11 +30,11 @@ namespace eLogistics.Application.Tests
 
             address.Create(id, Owner.Company, companyId);
             address.ChangeCountry(countryId);
-            address.ChangeCity(city);
+            address.ChangeCity(cityId);
 
             Assert.AreEqual(Owner.Company, address.State.Owner);
             Assert.AreEqual(countryId, address.State.CountryId);
-            Assert.AreEqual(city, address.State.City);
+            Assert.AreEqual(cityId, address.State.CityId);
             Assert.AreEqual(3, address.GetUncommittedChanges().Count);
 
             address.Commit();
@@ -50,19 +50,19 @@ namespace eLogistics.Application.Tests
             Guid id = Guid.NewGuid();
             Guid companyId = Guid.NewGuid();
             Guid countryId = Guid.NewGuid();
-            const string city = "Kaunas";
+            Guid cityId = Guid.NewGuid();
 
             IMessageBus messageBus = ServiceMediator.Bus;
             messageBus.Send(new AddressCommands.Create(id, Owner.Company, companyId));
             messageBus.Send(new AddressCommands.ChangeCountry(id, countryId));
-            messageBus.Send(new AddressCommands.ChangeCity(id, city));
+            messageBus.Send(new AddressCommands.ChangeCity(id, cityId));
 
             Repository<Address> repository = new Repository<Address>(ObjectFactory.Create<IEventStore>());
             Address address = repository.GetById(id);
 
             Assert.AreEqual(Owner.Company, address.State.Owner);
             Assert.AreEqual(countryId, address.State.CountryId);
-            Assert.AreEqual(city, address.State.City);
+            Assert.AreEqual(cityId, address.State.CityId);
 
             AddressFacade facade = new AddressFacade(ObjectFactory.Create<IReadModelStore>());
             GetAddressResponse response = facade.GetAddress(new GetAddressRequest {AddressId = id});

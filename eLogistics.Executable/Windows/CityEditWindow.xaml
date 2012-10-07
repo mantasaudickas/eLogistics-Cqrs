@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:eLogistics.Executable.Windows.Controls" 
         Title="Miestai" Height="154" Width="470" ResizeMode="CanMinimize">
     <Grid>
-        <Controls:CountryListComboBox HorizontalAlignment="Left" Height="23" Margin="147,10,0,0" VerticalAlignment="Top" Width="296" SelectedValue="{Binding CountryId}"/>
+        <Controls:CountryComboBox HorizontalAlignment="Left" Height="23" Margin="147,10,0,0" VerticalAlignment="Top" Width="296" SelectedValue="{Binding CountryId}"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="147,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Name}"/>
 
         <Label Content="Valstybė:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>

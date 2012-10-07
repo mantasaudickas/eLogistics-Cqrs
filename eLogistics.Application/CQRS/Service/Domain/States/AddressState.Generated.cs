@@ -16,7 +16,7 @@ namespace eLogistics.Application.CQRS.Service.Domain.States
         public Owner Owner { get; private set; }
         public Guid OwnerId { get; private set; }
         public Guid CountryId { get; private set; }
-        public string City { get; private set; }
+        public Guid CityId { get; private set; }
         public string Street { get; private set; }
         public string HouseNo { get; private set; }
         public string PostalCode { get; private set; }
@@ -36,7 +36,7 @@ namespace eLogistics.Application.CQRS.Service.Domain.States
 
         public void When(AddressEvents.CityChanged e)
         {
-            this.City = e.City;
+            this.CityId = e.CityId;
         }
 
         public void When(AddressEvents.StreetChanged e)

@@ -15,7 +15,7 @@ namespace eLogistics.Application.CQRS.Interfaces.Dto.Domain
         [DataMember] public Owner Owner { get; set; }
         [DataMember] public Guid OwnerId { get; set; }
         [DataMember] public Guid CountryId { get; set; }
-        [DataMember] public string City { get; set; }
+        [DataMember] public Guid CityId { get; set; }
         [DataMember] public string Street { get; set; }
         [DataMember] public string HouseNo { get; set; }
         [DataMember] public string PostalCode { get; set; }
@@ -29,7 +29,7 @@ namespace eLogistics.Application.CQRS.Interfaces.Dto.Domain
             descr.Properties["Owner"] = Owner;
             descr.Properties["OwnerId"] = OwnerId;
             descr.Properties["CountryId"] = CountryId;
-            descr.Properties["City"] = City;
+            descr.Properties["CityId"] = CityId;
             descr.Properties["Street"] = Street;
             descr.Properties["HouseNo"] = HouseNo;
             descr.Properties["PostalCode"] = PostalCode;

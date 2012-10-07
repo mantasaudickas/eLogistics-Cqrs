@@ -28,7 +28,7 @@ namespace eLogistics.Application.CQRS.Service.Handlers
         public void Handle(AddressCommands.ChangeCity message)
         {
             Address item = this.Repository.GetById(message.Id);
-            item.ChangeCity(message.City);
+            item.ChangeCity(message.CityId);
             this.Repository.Save(item);
         }
 

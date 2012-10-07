@@ -373,6 +373,7 @@ namespace SimpleCQRSCodeGenerator
 
         private void GenerateMessageClasses(StringBuilder builder)
         {
+            //return;
             builder.AppendFormat("namespace {0}.Interfaces.Messages.Domain", this.Namespace).AppendLine();
             builder.AppendLine("{");
 

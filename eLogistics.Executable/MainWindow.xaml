@@ -18,6 +18,7 @@
             <ListViewItem Content="Valstybės" Name="Countries"/>
             <ListViewItem Content="Miestai" Name="Cities"/>
             <ListViewItem Content="Bankai" Name="Banks"/>
+            <ListViewItem Content="Įmonės" Name="Companies"/>
         </ListView>
     </Grid>
 </Window>

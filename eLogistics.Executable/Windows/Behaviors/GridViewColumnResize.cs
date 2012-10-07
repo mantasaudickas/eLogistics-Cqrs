@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace eLogistics.Executable.Windows.Behaviors
 {
@@ -181,7 +182,8 @@ namespace eLogistics.Executable.Windows.Behaviors
                 else
                 {
                     double width = allowedSpace*(Percentage/totalPercentage);
-                    _element.Width = width;
+                    if (width > 0)
+                        _element.Width = width;
                 }
             }
         }
@@ -215,8 +217,7 @@ namespace eLogistics.Executable.Windows.Behaviors
                                                      Resize();
                                                      _element.SizeChanged += OnSizeChanged;
                                                  };
-                _timer = new Timer(x => Application.Current.Dispatcher.BeginInvoke(resizeAndEnableSize), null, Delay,
-                                   RefreshTime);
+                _timer = new Timer(x => Application.Current.Dispatcher.BeginInvoke(resizeAndEnableSize), null, Delay, RefreshTime);
             }
 
             public bool Enabled { get; set; }

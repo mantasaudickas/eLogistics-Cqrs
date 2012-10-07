@@ -15,7 +15,7 @@ namespace eLogistics.Application.Tests
         [Test]
         public void TestEventJsonSerialization()
         {
-            AddressEvents.CityChanged cityChanged = new AddressEvents.CityChanged(Guid.NewGuid(), "new city name");
+            AddressEvents.CityChanged cityChanged = new AddressEvents.CityChanged(Guid.NewGuid(), Guid.NewGuid());
             
             JsonSerializer serializer = new JsonSerializer();
             
@@ -27,13 +27,13 @@ namespace eLogistics.Application.Tests
             JsonReader reader = new JsonTextReader(textReader);
             var deserialized = serializer.Deserialize<AddressEvents.CityChanged>(reader);
 
-            Assert.AreEqual(cityChanged.City, deserialized.City);
+            Assert.AreEqual(cityChanged.CityId, deserialized.CityId);
         }
 
         [Test]
         public void TestCommandDataContractSerialization()
         {
-            AddressCommands.ChangeCity changeCity = new AddressCommands.ChangeCity(Guid.NewGuid(), "new city name");
+            AddressCommands.ChangeCity changeCity = new AddressCommands.ChangeCity(Guid.NewGuid(), Guid.NewGuid());
 
             DataContractSerializer serializer = new DataContractSerializer(typeof (AddressCommands.ChangeCity));
 
@@ -43,7 +43,7 @@ namespace eLogistics.Application.Tests
             stream.Position = 0;
             AddressCommands.ChangeCity deserialized = (AddressCommands.ChangeCity) serializer.ReadObject(stream);
             Assert.AreEqual(changeCity.Id, deserialized.Id);
-            Assert.AreEqual(changeCity.City, deserialized.City);
+            Assert.AreEqual(changeCity.CityId, deserialized.CityId);
         }
     }
 }

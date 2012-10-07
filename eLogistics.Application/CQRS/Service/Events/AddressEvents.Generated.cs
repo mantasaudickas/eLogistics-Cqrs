@@ -37,12 +37,12 @@ namespace eLogistics.Application.CQRS.Service.Events
         public class CityChanged : Event
         {
             [DataMember] public Guid AddressId { get; private set; }
-            [DataMember] public string City { get; private set; }
+            [DataMember] public Guid CityId { get; private set; }
 
-            public CityChanged(Guid addressId, string city) : base(addressId)
+            public CityChanged(Guid addressId, Guid cityId) : base(addressId)
             {
                 AddressId = addressId;
-                City = city;
+                CityId = cityId;
             }
         }
 

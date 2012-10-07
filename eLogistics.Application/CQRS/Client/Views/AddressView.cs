@@ -34,7 +34,7 @@ namespace eLogistics.Application.CQRS.Client.Views
         public override void Handle(AddressEvents.CityChanged message)
         {
             AddressDto dto = this.Load(message.AddressId);
-            dto.City = message.City;
+            dto.CityId = message.CityId;
             this.Save(dto);
         }
 

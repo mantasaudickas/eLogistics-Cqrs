@@ -260,6 +260,8 @@
     <Compile Include="UI\Domain\AddressEditModel.cs" />
     <Compile Include="UI\Domain\BankEditModel.cs" />
     <Compile Include="UI\Domain\CityEditModel.cs" />
+    <Compile Include="UI\Domain\CommunicationEditModel.cs" />
+    <Compile Include="UI\Domain\CompanyEditModel.cs" />
     <Compile Include="UI\Domain\CountryEditModel.cs" />
     <Compile Include="UI\Domain\EditModel.cs" />
     <Compile Include="UI\Domain\PaymentTypeEditModel.cs" />

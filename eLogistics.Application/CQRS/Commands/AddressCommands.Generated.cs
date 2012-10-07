@@ -37,12 +37,12 @@ namespace eLogistics.Application.CQRS.Commands
         public class ChangeCity : Command
         {
             [DataMember] public Guid AddressId { get; private set; }
-            [DataMember] public string City { get; private set; }
+            [DataMember] public Guid CityId { get; private set; }
 
-            public ChangeCity(Guid addressId, string city) : base(addressId)
+            public ChangeCity(Guid addressId, Guid cityId) : base(addressId)
             {
                 AddressId = addressId;
-                City = city;
+                CityId = cityId;
             }
         }
 

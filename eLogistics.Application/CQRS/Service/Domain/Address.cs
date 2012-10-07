@@ -27,9 +27,9 @@ namespace eLogistics.Application.CQRS.Service.Domain
             this.RaiseEvent(new AddressEvents.CountryChanged(this.State.Id, countryId));
         }
 
-        public void ChangeCity(string city)
+        public void ChangeCity(Guid cityId)
         {
-            this.RaiseEvent(new AddressEvents.CityChanged(this.State.Id, city));
+            this.RaiseEvent(new AddressEvents.CityChanged(this.State.Id, cityId));
         }
 
         public void ChangeStreet(string street, string houseNo)

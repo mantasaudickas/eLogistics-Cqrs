@@ -7,9 +7,9 @@ using eLogistics.Application.CQRS.Service.Storage;
 
 namespace eLogistics.Executable.Windows.Controls
 {
-    public class CountryListComboBox : ComboBox
+    public class CountryComboBox : ComboBox
     {
-        public CountryListComboBox()
+        public CountryComboBox()
         {
             this.Loaded += OnLoaded;
         }

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="eLogistics.Executable.Windows.BankListWindow"
+﻿<UserControl x:Class="eLogistics.Executable.Windows.AddressListWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,8 +6,6 @@
              xmlns:Controls="clr-namespace:eLogistics.Executable.Windows.Controls"
              xmlns:Behaviours="clr-namespace:eLogistics.Executable.Windows.Behaviors" mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    
-    
     <Grid ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -20,25 +18,32 @@
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Bankai" Grid.Column="0" VerticalContentAlignment="Center"/>
+            <Label Content="Miestai" Grid.Column="0" VerticalContentAlignment="Center"/>
             <Button Grid.Column="1" Content="+" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="buttonAdd" Click="OnAddItem"/>
             <Button Grid.Column="2" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="buttonRemove" Click="OnRemoveItem"/>
         </Grid>
 
-        <ListView Name="listItems" Grid.Row="1" ItemsSource="{Binding}" Behaviours:GridViewColumnResize.Enabled="True">
+        <ListView Name="listItems" Grid.Row="1" ItemsSource="{Binding Path=Items}" Behaviours:GridViewColumnResize.Enabled="True">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Bankas" DisplayMemberBinding="{Binding Name}" Behaviours:GridViewColumnResize.Width="*"/>
-                        <GridViewColumn Header="Banko kodas" DisplayMemberBinding="{Binding Code}" Width="100"/>
-                        <GridViewColumn Header="Banko Swift kodas" DisplayMemberBinding="{Binding SwiftCode}" Width="100"/>
-                        <GridViewColumn Header="Šalis">
+                        <GridViewColumn Header="Šalis" Width="100">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Controls:CountryComboBox SelectedValue="{Binding CountryId}" IsHitTestVisible="False" Focusable="False" Width="100"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
+                        <GridViewColumn Header="Miestas" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Controls:CountryComboBox SelectedValue="{Binding CityId}" IsHitTestVisible="False" Focusable="False" Width="100"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Gatvė" DisplayMemberBinding="{Binding Street}" Width="100"/>
+                        <GridViewColumn Header="Numeris" DisplayMemberBinding="{Binding HouseNo}" Width="50"/>
+                        <GridViewColumn Header="Pašto kodas" DisplayMemberBinding="{Binding PostalCode}" Width="50"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
