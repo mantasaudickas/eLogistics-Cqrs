@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
+using eLogistics.Application.CQRS.Interfaces;
 using eLogistics.Application.UI.Domain;
-using eLogistics.Executable.Controllers;
 
 namespace eLogistics.Executable.Windows
 {
@@ -22,12 +21,13 @@ namespace eLogistics.Executable.Windows
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
             MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+            
             CompanyEditModel companyEditModel = (CompanyEditModel)this.DataContext;
+            const Owner owner = Application.CQRS.Interfaces.Owner.Company;
+            Guid companyId = companyEditModel.CompanyId;
 
-            CommunicationController communicationController = new CommunicationController(this.listCommunications.listItems, companyEditModel.CommunicationList);
-            communicationController.Owner = Application.CQRS.Interfaces.Owner.Company;
-            communicationController.OwnerId = companyEditModel.CompanyId;
-            this.listCommunications.DataContext = communicationController;
+            this.listCommunications.InitController(owner, companyId);
+            this.listAddresses.InitController(owner, companyId);
         }
 
         private void OnButtonOkClick(object sender, RoutedEventArgs e)

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:Controls="clr-namespace:eLogistics.Executable.Windows.Controls"
              xmlns:Behaviours="clr-namespace:eLogistics.Executable.Windows.Behaviors" mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="500">
     <Grid ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -18,7 +18,7 @@
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Miestai" Grid.Column="0" VerticalContentAlignment="Center"/>
+            <Label Content="Adresai" Grid.Column="0" VerticalContentAlignment="Center"/>
             <Button Grid.Column="1" Content="+" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="buttonAdd" Click="OnAddItem"/>
             <Button Grid.Column="2" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="buttonRemove" Click="OnRemoveItem"/>
         </Grid>
@@ -27,23 +27,23 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Šalis" Width="100">
+                        <GridViewColumn Header="Šalis" Width="150">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Controls:CountryComboBox SelectedValue="{Binding CountryId}" IsHitTestVisible="False" Focusable="False" Width="100"/>
+                                    <Controls:CountryComboBox SelectedValue="{Binding CountryId}" IsHitTestVisible="False" Focusable="False" Width="130"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Miestas" Width="100">
+                        <GridViewColumn Header="Miestas" Width="150">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Controls:CountryComboBox SelectedValue="{Binding CityId}" IsHitTestVisible="False" Focusable="False" Width="100"/>
+                                    <Controls:CityComboBox SelectedValue="{Binding CityId}" IsHitTestVisible="False" Focusable="False" Width="130"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Gatvė" DisplayMemberBinding="{Binding Street}" Width="100"/>
+                        <GridViewColumn Header="Gatvė" DisplayMemberBinding="{Binding Street}" Behaviours:GridViewColumnResize.Width="*"/>
                         <GridViewColumn Header="Numeris" DisplayMemberBinding="{Binding HouseNo}" Width="50"/>
-                        <GridViewColumn Header="Pašto kodas" DisplayMemberBinding="{Binding PostalCode}" Width="50"/>
+                        <GridViewColumn Header="Pašto kodas" DisplayMemberBinding="{Binding PostalCode}" Width="100"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

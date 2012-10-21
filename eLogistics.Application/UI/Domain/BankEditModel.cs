@@ -6,7 +6,7 @@ namespace eLogistics.Application.UI.Domain
 {
     public class BankEditModel : EditModel<BankDto>
     {
-        public BankEditModel()
+        public BankEditModel() : this(null)
         {
         }
 

@@ -15,35 +15,25 @@ namespace eLogistics.Executable.Controllers
 {
     public class CommunicationController : ListBoxController<CommunicationEditModel, CommunicationDto>
     {
-        private Owner _owner;
-        private Guid _ownerId;
+        private readonly Owner _owner;
+        private readonly Guid _ownerId;
 
-        public CommunicationController(ListBox listBox, List<CommunicationEditModel> parentList)
-            : base(listBox, parentList)
+        public CommunicationController(ListBox listBox, Owner owner, Guid ownerId)
+            : base(listBox)
         {
-        }
-
-        public Owner Owner
-        {
-            get { return _owner; }
-            set { _owner = value; }
-        }
-
-        public Guid OwnerId
-        {
-            get { return _ownerId; }
-            set { _ownerId = value; }
+            _owner = owner;
+            _ownerId = ownerId;
         }
 
         protected override CommunicationEditModel CreateModel(CommunicationDto dto = null)
         {
             if (dto == null)
-                return CommunicationEditModel.CreateNewModel(this.Owner, this.OwnerId);
+                return CommunicationEditModel.CreateNewModel(_owner, _ownerId);
 
-            if (dto.Owner != this.Owner)
+            if (dto.Owner != _owner)
                 throw new Exception("Dto owner does not match controller expected owner.");
 
-            if (dto.OwnerId != this.OwnerId)
+            if (dto.OwnerId != _ownerId)
                 throw new Exception("Dto owner does not match controller expected owner id.");
 
             return CommunicationEditModel.CreateModel(dto);
@@ -52,7 +42,7 @@ namespace eLogistics.Executable.Controllers
         protected override IList<CommunicationDto> GetList(string filter = null)
         {
             CommunicationFacade facade = new CommunicationFacade(ObjectFactory.Create<IReadModelStore>());
-            var response = facade.GetCommunicationList(new GetCommunicationListRequest {Owner = this.Owner, OwnerId = this.OwnerId, Filter = filter});
+            var response = facade.GetCommunicationList(new GetCommunicationListRequest { Owner = _owner, OwnerId = _ownerId, Filter = filter });
             return response != null ? response.CommunicationList : null;
         }
 

@@ -6,7 +6,7 @@ namespace eLogistics.Application.UI.Domain
 {
     public class CityEditModel : EditModel<CityDto>
     {
-        public CityEditModel()
+        public CityEditModel() : this(null)
         {
         }
 

@@ -7,7 +7,7 @@ namespace eLogistics.Application.UI.Domain
 {
     public class AddressEditModel : EditModel<AddressDto>
     {
-        protected AddressEditModel()
+        protected AddressEditModel() : this(null)
         {
 
         }

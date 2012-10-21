@@ -7,7 +7,7 @@ namespace eLogistics.Application.UI.Domain
 {
     public class CompanyEditModel : EditModel<CompanyDto>
     {
-        public CompanyEditModel()
+        public CompanyEditModel() : this(null)
         {
         }
 

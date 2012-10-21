@@ -6,7 +6,7 @@ namespace eLogistics.Application.UI.Domain
 {
     public class PaymentTypeEditModel : EditModel<PaymentTypeDto>
     {
-        public PaymentTypeEditModel()
+        public PaymentTypeEditModel() : this(null)
         {
         }
 

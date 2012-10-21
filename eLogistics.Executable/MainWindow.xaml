@@ -8,17 +8,17 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <ListView Name="listView" Grid.Column="0" MouseLeftButtonUp="ListViewMouseDown">
+            <ListViewItem Content="Valstybės" Name="Countries"/>
+            <ListViewItem Content="Miestai" Name="Cities"/>
             <ListViewItem Content="Mokėjimų tipai" Name="PaymentTypes"/>
+            <ListViewItem Content="Bankai" Name="Banks"/>
+            <ListViewItem Content="Įmonės" Name="Companies"/>
             <ListViewItem Content="Tiekėjai" Name="Suppliers"/>
             <ListViewItem Content="Klientai" Name="Customers"/>
             <ListViewItem Content="Prekių grupės" Name="ArticleGroups"/>
             <ListViewItem Content="Prekės" Name="Articles"/>
             <ListViewItem Content="Tiekėjų sąskaitos" Name="SupplierInvoices"/>
             <ListViewItem Content="Užsakymai" Name="Orders"/>
-            <ListViewItem Content="Valstybės" Name="Countries"/>
-            <ListViewItem Content="Miestai" Name="Cities"/>
-            <ListViewItem Content="Bankai" Name="Banks"/>
-            <ListViewItem Content="Įmonės" Name="Companies"/>
         </ListView>
     </Grid>
 </Window>

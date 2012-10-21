@@ -3,43 +3,43 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:eLogistics.Executable.Windows.Controls" 
         xmlns:local="clr-namespace:eLogistics.Executable.Windows" x:Class="eLogistics.Executable.Windows.CompanyEditWindow" 
-        Title="Įmonės" Height="321" Width="874" ResizeMode="CanMinimize">
+        Title="Įmonės" Height="471" Width="994" ResizeMode="CanMinimize">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="450"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        
         <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         
-        <Grid Grid.Column="0">
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="147,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Name}"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="147,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding CompanyCode}"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="147,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding CompanyVatCode}"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="147,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding ContactPersonName}"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="147,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding ContactPhoneNo}"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="147,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Note}"/>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="450"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Grid.Column="0">
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="147,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Name}"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="147,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding CompanyCode}"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="147,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding CompanyVatCode}"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="147,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding ContactPersonName}"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="147,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding ContactPhoneNo}"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="147,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Note}"/>
 
-            <Label Content="Įmonė:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <Label Content="Įmonės kodas:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-            <Label Content="Įmonė PVM kodas:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
-            <Label Content="Kontaktinis asmuo:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
-            <Label Content="Kontaktinis telefonas:" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
-            <Label Content="Pastabos:" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top"/>
+                <Label Content="Įmonė:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Label Content="Įmonės kodas:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                <Label Content="Įmonė PVM kodas:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+                <Label Content="Kontaktinis asmuo:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+                <Label Content="Kontaktinis telefonas:" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+                <Label Content="Pastabos:" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top"/>
+            </Grid>
+
+            <local:CommunicationListWindow Grid.Column="1" x:Name="listCommunications"/>
+
         </Grid>
 
-        <Button HorizontalAlignment="Left" Margin="210,5,0,0" VerticalAlignment="Top" Width="75" Content="Ok" Click="OnButtonOkClick" Grid.Column="1" Grid.Row="1"/>
-        <Button HorizontalAlignment="Left" Margin="290,5,0,0" VerticalAlignment="Top" Width="75" Content="Cancel" Click="OnButtonCancelClick" Grid.Column="1" Grid.Row="1"/>
-        
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="120"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <local:CommunicationListWindow Grid.Row="0" x:Name="listCommunications"/>
-        </Grid>
+        <local:AddressListWindow Grid.Row="1" x:Name="listAddresses"/>
+
+        <Button HorizontalAlignment="Left" Margin="823,5,0,0" VerticalAlignment="Top" Width="75" Content="Ok" Click="OnButtonOkClick" Grid.Row="2"/>
+        <Button HorizontalAlignment="Left" Margin="903,5,0,0" VerticalAlignment="Top" Width="75" Content="Cancel" Click="OnButtonCancelClick" Grid.Row="2"/>
     </Grid>
 </Window>

@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Data;
 using eLogistics.Application.CQRS.Interfaces;
-using eLogistics.Application.UI;
-using eLogistics.Application.UI.Domain;
 using eLogistics.Executable.Controllers;
 
 namespace eLogistics.Executable.Windows
@@ -19,20 +14,19 @@ namespace eLogistics.Executable.Windows
             InitializeComponent();
         }
 
-        public CommunicationController Controller
+        public void InitController(Owner owner, Guid ownerId)
         {
-            get { return (CommunicationController) this.DataContext; }
-            set { this.DataContext = value; }
+            this.DataContext = new CommunicationController(this.listItems, owner, ownerId);
         }
 
         private void OnAddItem(object sender, System.Windows.RoutedEventArgs e)
         {
-            Controller.AddModel();
+            ((CommunicationController)DataContext).AddModel();
         }
 
         private void OnRemoveItem(object sender, System.Windows.RoutedEventArgs e)
         {
-            Controller.RemoveModel();
+            ((CommunicationController)DataContext).RemoveModel();
         }
     }
 }

@@ -9,32 +9,24 @@ namespace eLogistics.Executable.Windows
     /// </summary>
     public partial class AddressListWindow
     {
-        private AddressController _controller;
-
         public AddressListWindow()
         {
             InitializeComponent();
         }
 
-        protected override void OnInitialized(EventArgs e)
+        public void InitController(Owner owner, Guid ownerId)
         {
-            base.OnInitialized(e);
-
-            _controller = new AddressController(this.listItems, this.Owner, this.OwnerId);
-            this.DataContext = _controller;
+            this.DataContext = new AddressController(this.listItems, owner, ownerId);
         }
-
-        public Owner Owner { get; set; }
-        public Guid OwnerId { get; set; }
 
         private void OnAddItem(object sender, System.Windows.RoutedEventArgs e)
         {
-            _controller.AddModel();
+            ((AddressController)DataContext).AddModel();
         }
 
         private void OnRemoveItem(object sender, System.Windows.RoutedEventArgs e)
         {
-            _controller.RemoveModel();
+            ((AddressController)DataContext).RemoveModel();
         }
     }
 }
