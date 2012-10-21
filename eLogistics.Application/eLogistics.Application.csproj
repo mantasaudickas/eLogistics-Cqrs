@@ -263,8 +263,10 @@
     <Compile Include="UI\Domain\CommunicationEditModel.cs" />
     <Compile Include="UI\Domain\CompanyEditModel.cs" />
     <Compile Include="UI\Domain\CountryEditModel.cs" />
-    <Compile Include="UI\Domain\EditModel.cs" />
     <Compile Include="UI\Domain\PaymentTypeEditModel.cs" />
+    <Compile Include="UI\EditModel.cs" />
+    <Compile Include="UI\EditModelBase.cs" />
+    <Compile Include="UI\ChangeCommandScope.cs" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

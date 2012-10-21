@@ -21,6 +21,8 @@ namespace eLogistics.Application.UI.Domain
             }
         }
 
+        public Guid CompanyId { get { return Dto.CompanyId; } set {} }
+
         public string Name
         {
             get { return Dto.Name; }
@@ -99,7 +101,7 @@ namespace eLogistics.Application.UI.Domain
                 if (value != Dto.Note)
                 {
                     Dto.Note = value;
-                    this.Send(new BankCommands.ChangeNote(Dto.CompanyId, value));
+                    this.Send(new CompanyCommands.ChangeNote(Dto.CompanyId, value));
                     this.RaisePropertyChanged();
                 }
             }

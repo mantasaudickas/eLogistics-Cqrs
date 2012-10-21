@@ -15,14 +15,25 @@ namespace eLogistics.Application.CQRS.Client.Facades.Domain
 
     public partial class CommunicationFacade : ReadModelFacade, ICommunicationFacade
     {
-    public CommunicationFacade(IReadModelStore readModelStore) : base(readModelStore) {}        public GetCommunicationListResponse GetCommunicationList(GetCommunicationListRequest request)
+        public CommunicationFacade(IReadModelStore readModelStore) : base(readModelStore) {}        
+        
+        public GetCommunicationListResponse GetCommunicationList(GetCommunicationListRequest request)
         {
             CommunicationView view = new CommunicationView(ObjectFactory.Create<IReadModelStore>());
             List<CommunicationDto> list = view.GetList(request.Filter);
+
+            if (list != null)
+            {
+                for (int i = list.Count - 1; i >= 0; i--)
+                {
+                    if (list[i].Owner != request.Owner || list[i].OwnerId != request.OwnerId)
+                        list.RemoveAt(i);
+                }
+            }
+
             GetCommunicationListResponse response = new GetCommunicationListResponse();
             response.CommunicationList = list;
             return response;
-
         }
 
         public GetCommunicationResponse GetCommunication(GetCommunicationRequest request)
@@ -32,7 +43,6 @@ namespace eLogistics.Application.CQRS.Client.Facades.Domain
             GetCommunicationResponse response = new GetCommunicationResponse();
             response.Communication = dto;
             return response;
-
         }
 
     }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using eLogistics.Application.UI.Domain;
 using eLogistics.Executable.Controllers;
 
 namespace eLogistics.Executable.Windows
@@ -15,8 +13,6 @@ namespace eLogistics.Executable.Windows
         public CountryListWindow()
         {
             InitializeComponent();
-
-            this.DataContext = this;
         }
 
         protected override void OnInitialized(EventArgs e)
@@ -24,10 +20,8 @@ namespace eLogistics.Executable.Windows
             base.OnInitialized(e);
 
             _controller = new CountryController(this.listItems);
-            _controller.Init();
+            this.DataContext = _controller;
         }
-
-        public IList<CountryEditModel> Items { get { return _controller.ListBoxItems; } }
 
         private void OnAddItem(object sender, System.Windows.RoutedEventArgs e)
         {

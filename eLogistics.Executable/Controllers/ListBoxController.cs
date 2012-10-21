@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using eLogistics.Application.CQRS.Interfaces.Dto;
-using eLogistics.Application.UI.Domain;
+using eLogistics.Application.UI;
 
 namespace eLogistics.Executable.Controllers
 {
@@ -16,15 +16,21 @@ namespace eLogistics.Executable.Controllers
         #region Private Fields
 
         private readonly ListBox _listBox;
-        private readonly ObservableCollection<TModel> _listBoxItems = new ObservableCollection<TModel>();
+        private ObservableCollection<TModel> _listBoxItems;
+        private readonly List<TModel> _parentList;
 
         #endregion
 
         #region Constructor
 
-        protected ListBoxController(ListBox listBox)
+        protected ListBoxController(ListBox listBox, List<TModel> parentList = null)
         {
+            if (listBox == null) throw new ArgumentNullException("listBox");
             _listBox = listBox;
+            _parentList = parentList;
+
+            _listBox.KeyDown += (sender, args) => HandleListItemsKeys(args);
+            _listBox.MouseDoubleClick += (sender, args) => HandleListItemsDoubleClick(args);
         }
 
         #endregion
@@ -33,24 +39,21 @@ namespace eLogistics.Executable.Controllers
 
         public IList<TModel> ListBoxItems
         {
-            get { return _listBoxItems; }
-        }
-
-        #endregion
-
-        #region Init
-
-        public void Init()
-        {
-            this._listBox.KeyDown += (sender, args) => HandleListItemsKeys(args);
-            this._listBox.MouseDoubleClick += (sender, args) => HandleListItemsDoubleClick(args);
-
-            var list = GetList() ?? new List<TDto>();
-
-            foreach (TDto dto in list)
+            get
             {
-                TModel model = this.CreateModel(dto);
-                _listBoxItems.Add(model);
+                if (_listBoxItems == null)
+                {
+                    _listBoxItems = _parentList != null ? new ObservableCollection<TModel>(_parentList) : new ObservableCollection<TModel>();
+
+                    var list = GetList() ?? new List<TDto>();
+
+                    foreach (TDto dto in list)
+                    {
+                        TModel model = this.CreateModel(dto);
+                        _listBoxItems.Add(model);
+                    }
+                }
+                return _listBoxItems;
             }
         }
 
@@ -60,46 +63,55 @@ namespace eLogistics.Executable.Controllers
 
         public void AddModel()
         {
-            TModel editModel = this.CreateModel();
-            if (this.Edit(editModel, false))
+            using (ChangeCommandScope scope = new ChangeCommandScope())
             {
-                editModel.Commit();
+                TModel editModel = this.CreateModel();
+                if (this.Edit(editModel, false))
+                {
+                    editModel.Commit();
 
-                _listBoxItems.Add(editModel);
-                _listBox.SelectedItem = editModel;
+                    _listBoxItems.Add(editModel);
+                    _listBox.SelectedItem = editModel;
+                }
             }
         }
 
         public void EditModel()
         {
-            TModel editModel = (TModel) _listBox.SelectedItem;
-            if (editModel != null)
+            using (ChangeCommandScope scope = new ChangeCommandScope())
             {
-                TDto clone = editModel.CloneDto();
-                if (this.Edit(editModel, true))
+                TModel editModel = (TModel) _listBox.SelectedItem;
+                if (editModel != null)
                 {
-                    editModel.Commit();
-                }
-                else if (editModel.HasChanges)
-                {
-                    TModel clonedModel = CreateModel(clone);
+                    TDto clone = editModel.CloneDto();
+                    if (this.Edit(editModel, true))
+                    {
+                        editModel.Commit();
+                    }
+                    else if (editModel.HasChanges)
+                    {
+                        TModel clonedModel = CreateModel(clone);
 
-                    int index = _listBoxItems.IndexOf(editModel);
-                    _listBoxItems.RemoveAt(index);
-                    _listBoxItems.Insert(index, clonedModel);
-                    _listBox.SelectedItem = clonedModel;
+                        int index = _listBoxItems.IndexOf(editModel);
+                        _listBoxItems.RemoveAt(index);
+                        _listBoxItems.Insert(index, clonedModel);
+                        _listBox.SelectedItem = clonedModel;
+                    }
                 }
             }
         }
 
         public void RemoveModel()
         {
-            TModel editModel = (TModel) _listBox.SelectedItem;
-            if (editModel != null)
+            using (ChangeCommandScope scope = new ChangeCommandScope())
             {
-                editModel.Delete();
-                editModel.Commit();
-                _listBoxItems.Remove(editModel);
+                TModel editModel = (TModel) _listBox.SelectedItem;
+                if (editModel != null)
+                {
+                    editModel.Delete();
+                    editModel.Commit();
+                    _listBoxItems.Remove(editModel);
+                }
             }
         }
 

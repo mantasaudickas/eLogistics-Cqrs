@@ -7,11 +7,12 @@ namespace eLogistics.Application.UI.Domain
 {
     public class CommunicationEditModel : EditModel<CommunicationDto>
     {
-        public CommunicationEditModel()
+        public CommunicationEditModel() : this(null)
         {
         }
 
-        protected CommunicationEditModel(CommunicationDto dto) : base(dto)
+        protected CommunicationEditModel(CommunicationDto dto)
+            : base(dto)
         {
             if (this.CreatedNew)
             {
@@ -72,7 +73,7 @@ namespace eLogistics.Application.UI.Domain
                 if (Dto.Note != value)
                 {
                     Dto.Note = value;
-                    this.Send(new AddressCommands.ChangeNote(Dto.CommunicationId, value));
+                    this.Send(new CommunicationCommands.ChangeNote(Dto.CommunicationId, value));
                     this.RaisePropertyChanged();
                 }
             }

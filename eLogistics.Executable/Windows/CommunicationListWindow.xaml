@@ -23,11 +23,13 @@
             <Button Grid.Column="2" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="buttonRemove" Click="OnRemoveItem"/>
         </Grid>
 
-        <ListView Name="listItems" Grid.Row="1" ItemsSource="{Binding Path=Items}" Behaviours:GridViewColumnResize.Enabled="True">
+        <ListView Name="listItems" Grid.Row="1" ItemsSource="{Binding Path=ListBoxItems}" Behaviours:GridViewColumnResize.Enabled="True">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Miestas" DisplayMemberBinding="{Binding Name}" Behaviours:GridViewColumnResize.Width="*"/>
+                        <GridViewColumn Header="Tipas" DisplayMemberBinding="{Binding CommunicationType}" Behaviours:GridViewColumnResize.Width="*"/>
+                        <GridViewColumn Header="Reikšmė" DisplayMemberBinding="{Binding Value}" Width="100"/>
+<!--
                         <GridViewColumn Header="Šalis" Width="100">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
@@ -35,6 +37,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
+-->
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

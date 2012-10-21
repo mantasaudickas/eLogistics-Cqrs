@@ -15,8 +15,6 @@ namespace eLogistics.Executable.Windows
         public CityListWindow()
         {
             InitializeComponent();
-
-            this.DataContext = this;
         }
 
         protected override void OnInitialized(EventArgs e)
@@ -24,10 +22,8 @@ namespace eLogistics.Executable.Windows
             base.OnInitialized(e);
 
             _controller = new CityController(this.listItems);
-            _controller.Init();
+            this.DataContext = _controller;
         }
-
-        public IList<CityEditModel> Items { get { return _controller.ListBoxItems; } }
 
         private void OnAddItem(object sender, System.Windows.RoutedEventArgs e)
         {

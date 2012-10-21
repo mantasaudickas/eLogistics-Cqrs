@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using eLogistics.Application.CQRS.Interfaces.Dto;
+using eLogistics.Application.UI;
 using eLogistics.Application.UI.Domain;
 
 namespace eLogistics.Executable.Controllers

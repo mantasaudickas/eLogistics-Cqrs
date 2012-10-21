@@ -6,7 +6,7 @@
         Title="Įmonės" Height="321" Width="874" ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="450"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
@@ -34,6 +34,12 @@
         <Button HorizontalAlignment="Left" Margin="210,5,0,0" VerticalAlignment="Top" Width="75" Content="Ok" Click="OnButtonOkClick" Grid.Column="1" Grid.Row="1"/>
         <Button HorizontalAlignment="Left" Margin="290,5,0,0" VerticalAlignment="Top" Width="75" Content="Cancel" Click="OnButtonCancelClick" Grid.Column="1" Grid.Row="1"/>
         
-        <local:CommunicationListWindow Grid.Column="1"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <local:CommunicationListWindow Grid.Row="0" x:Name="listCommunications"/>
+        </Grid>
     </Grid>
 </Window>
