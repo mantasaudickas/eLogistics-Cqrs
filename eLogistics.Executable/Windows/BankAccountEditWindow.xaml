@@ -1,0 +1,17 @@
+﻿<Window x:Class="eLogistics.Executable.Windows.BankAccountEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:eLogistics.Executable.Windows.Controls" 
+        Title="Banko sąskaita" Height="138" Width="464" ResizeMode="CanMinimize">
+    <Grid>
+
+        <Controls:BankComboBox HorizontalAlignment="Left" Height="23" Margin="147,10,0,0" VerticalAlignment="Top" Width="296" SelectedValue="{Binding BankId}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="147,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Text="{Binding Path=AccountNo}"/>
+
+        <Label Content="Bankas:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sąskaita:" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top"/>
+
+        <Button HorizontalAlignment="Left" Margin="288,79,0,0" VerticalAlignment="Top" Width="75" Content="Ok" Click="OnButtonOkClick"/>
+        <Button HorizontalAlignment="Left" Margin="368,79,0,0" VerticalAlignment="Top" Width="75" Content="Cancel" Click="OnButtonCancelClick"/>
+    </Grid>
+</Window>

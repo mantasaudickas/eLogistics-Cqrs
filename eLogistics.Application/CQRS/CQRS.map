@@ -113,11 +113,8 @@
 !ChangeName(string name)
 ?NameChanged(string name)
 
-!AddCompany(Guid companyId)
-?CompanyAdded(Guid companyId)
-
-!RemoveCompany(Guid companyId)
-?CompanyRemoved(Guid companyId)
+!ChangeCompany(Guid companyId)
+?CompanyChanged(Guid companyId)
 
 !ChangeNote(string note)
 ?NoteChanged(string note)

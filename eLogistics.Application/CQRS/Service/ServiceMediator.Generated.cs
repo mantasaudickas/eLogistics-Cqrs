@@ -161,16 +161,14 @@ namespace eLogistics.Application.CQRS.Service
 
             _messageBus.Register<SupplierCommands.Create>(_supplierHandler.Handle);
             _messageBus.Register<SupplierCommands.ChangeName>(_supplierHandler.Handle);
-            _messageBus.Register<SupplierCommands.AddCompany>(_supplierHandler.Handle);
-            _messageBus.Register<SupplierCommands.RemoveCompany>(_supplierHandler.Handle);
+            _messageBus.Register<SupplierCommands.ChangeCompany>(_supplierHandler.Handle);
             _messageBus.Register<SupplierCommands.ChangeNote>(_supplierHandler.Handle);
             _messageBus.Register<SupplierCommands.AddBankAccount>(_supplierHandler.Handle);
             _messageBus.Register<SupplierCommands.RemoveBankAccount>(_supplierHandler.Handle);
 
             _messageBus.Register<SupplierEvents.Created>(_supplierView.Handle);
             _messageBus.Register<SupplierEvents.NameChanged>(_supplierView.Handle);
-            _messageBus.Register<SupplierEvents.CompanyAdded>(_supplierView.Handle);
-            _messageBus.Register<SupplierEvents.CompanyRemoved>(_supplierView.Handle);
+            _messageBus.Register<SupplierEvents.CompanyChanged>(_supplierView.Handle);
             _messageBus.Register<SupplierEvents.NoteChanged>(_supplierView.Handle);
             _messageBus.Register<SupplierEvents.BankAccountAdded>(_supplierView.Handle);
             _messageBus.Register<SupplierEvents.BankAccountRemoved>(_supplierView.Handle);

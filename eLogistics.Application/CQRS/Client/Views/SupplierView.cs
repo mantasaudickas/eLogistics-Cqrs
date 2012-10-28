@@ -29,14 +29,7 @@ namespace eLogistics.Application.CQRS.Client.Views
             this.Save(dto);
         }
 
-        public override void Handle(SupplierEvents.CompanyAdded message)
-        {
-            SupplierDto dto = this.Load(message.SupplierId);
-            dto.CompanyId = message.CompanyId;
-            this.Save(dto);
-        }
-
-        public override void Handle(SupplierEvents.CompanyRemoved message)
+        public override void Handle(SupplierEvents.CompanyChanged message)
         {
             SupplierDto dto = this.Load(message.SupplierId);
             dto.CompanyId = message.CompanyId;

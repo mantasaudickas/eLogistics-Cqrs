@@ -9,8 +9,7 @@ namespace eLogistics.Application.CQRS.Client.Views.Base
     public abstract class SupplierViewBase : View<SupplierDto>
         , IHandler<SupplierEvents.Created>
         , IHandler<SupplierEvents.NameChanged>
-        , IHandler<SupplierEvents.CompanyAdded>
-        , IHandler<SupplierEvents.CompanyRemoved>
+        , IHandler<SupplierEvents.CompanyChanged>
         , IHandler<SupplierEvents.NoteChanged>
         , IHandler<SupplierEvents.BankAccountAdded>
         , IHandler<SupplierEvents.BankAccountRemoved>
@@ -22,8 +21,7 @@ namespace eLogistics.Application.CQRS.Client.Views.Base
 
         public abstract void Handle(SupplierEvents.Created message);
         public abstract void Handle(SupplierEvents.NameChanged message);
-        public abstract void Handle(SupplierEvents.CompanyAdded message);
-        public abstract void Handle(SupplierEvents.CompanyRemoved message);
+        public abstract void Handle(SupplierEvents.CompanyChanged message);
         public abstract void Handle(SupplierEvents.NoteChanged message);
         public abstract void Handle(SupplierEvents.BankAccountAdded message);
         public abstract void Handle(SupplierEvents.BankAccountRemoved message);

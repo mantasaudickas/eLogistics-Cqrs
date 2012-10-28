@@ -30,25 +30,12 @@ namespace eLogistics.Application.CQRS.Commands
         }
 
         [DataContract]
-        public class AddCompany : Command
+        public class ChangeCompany : Command
         {
             [DataMember] public Guid SupplierId { get; private set; }
             [DataMember] public Guid CompanyId { get; private set; }
 
-            public AddCompany(Guid supplierId, Guid companyId) : base(supplierId)
-            {
-                SupplierId = supplierId;
-                CompanyId = companyId;
-            }
-        }
-
-        [DataContract]
-        public class RemoveCompany : Command
-        {
-            [DataMember] public Guid SupplierId { get; private set; }
-            [DataMember] public Guid CompanyId { get; private set; }
-
-            public RemoveCompany(Guid supplierId, Guid companyId) : base(supplierId)
+            public ChangeCompany(Guid supplierId, Guid companyId) : base(supplierId)
             {
                 SupplierId = supplierId;
                 CompanyId = companyId;

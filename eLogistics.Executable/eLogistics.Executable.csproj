@@ -62,6 +62,7 @@
     <Compile Include="Controllers\ListViewController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\ListBoxController.cs" />
+    <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Windows\BankListWindow.xaml.cs">
       <DependentUpon>BankListWindow.xaml</DependentUpon>
     </Compile>
@@ -71,8 +72,10 @@
     <Compile Include="Windows\AddressEditWindow.xaml.cs">
       <DependentUpon>AddressEditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Controls\BankComboBox.cs" />
     <Compile Include="Windows\Controls\CityComboBox.cs" />
     <Compile Include="Windows\Controls\CommunicationComboBox.cs" />
+    <Compile Include="Windows\Controls\CompanyComboBox.cs" />
     <Compile Include="Windows\Controls\CountryComboBox.cs" />
     <Compile Include="Windows\CityEditWindow.xaml.cs">
       <DependentUpon>CityEditWindow.xaml</DependentUpon>
@@ -96,6 +99,15 @@
     </Compile>
     <Compile Include="Windows\CompanyListWindow.xaml.cs">
       <DependentUpon>CompanyListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\BankAccountEditWindow.xaml.cs">
+      <DependentUpon>BankAccountEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SupplierEditWindow.xaml.cs">
+      <DependentUpon>SupplierEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SupplierListWindow.xaml.cs">
+      <DependentUpon>SupplierListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\CountryEditWindow.xaml.cs">
       <DependentUpon>CountryEditWindow.xaml</DependentUpon>
@@ -158,6 +170,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\CompanyListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\BankAccountEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SupplierEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SupplierListWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

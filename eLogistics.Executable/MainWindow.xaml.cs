@@ -48,7 +48,7 @@ namespace eLogistics.Executable
                             userControl = new CompanyListWindow();
                             break;
                         case "Suppliers":
-                            userControl = new SuppliersPage();
+                            userControl = new SupplierListWindow();
                             break;
                         default:
                             break;

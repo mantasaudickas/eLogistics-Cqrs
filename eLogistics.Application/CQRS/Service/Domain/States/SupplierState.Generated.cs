@@ -28,12 +28,7 @@ namespace eLogistics.Application.CQRS.Service.Domain.States
             this.Name = e.Name;
         }
 
-        public void When(SupplierEvents.CompanyAdded e)
-        {
-            this.CompanyId = e.CompanyId;
-        }
-
-        public void When(SupplierEvents.CompanyRemoved e)
+        public void When(SupplierEvents.CompanyChanged e)
         {
             this.CompanyId = e.CompanyId;
         }
@@ -45,11 +40,16 @@ namespace eLogistics.Application.CQRS.Service.Domain.States
 
         public void When(SupplierEvents.BankAccountAdded e)
         {
+            if (this.BankAccountList == null)
+                this.BankAccountList = new List<BankAccount>();
             this.BankAccountList.Add(e.BankAccount);
         }
 
         public void When(SupplierEvents.BankAccountRemoved e)
         {
+            if (this.BankAccountList == null)
+                return;
+            
             this.BankAccountList.Remove(e.BankAccount);
         }
 

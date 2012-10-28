@@ -25,17 +25,10 @@ namespace eLogistics.Application.CQRS.Service.Handlers
             this.Repository.Save(item);
         }
 
-        public void Handle(SupplierCommands.AddCompany message)
+        public void Handle(SupplierCommands.ChangeCompany message)
         {
             Supplier item = this.Repository.GetById(message.Id);
-            item.AddCompany(message.CompanyId);
-            this.Repository.Save(item);
-        }
-
-        public void Handle(SupplierCommands.RemoveCompany message)
-        {
-            Supplier item = this.Repository.GetById(message.Id);
-            item.RemoveCompany(message.CompanyId);
+            item.ChangeCompany(message.CompanyId);
             this.Repository.Save(item);
         }
 

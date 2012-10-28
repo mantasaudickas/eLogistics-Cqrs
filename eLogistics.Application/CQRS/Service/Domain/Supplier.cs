@@ -21,14 +21,9 @@ namespace eLogistics.Application.CQRS.Service.Domain
             this.RaiseEvent(new SupplierEvents.NameChanged(this.State.Id, name));
         }
 
-        public void AddCompany(Guid companyId)
+        public void ChangeCompany(Guid companyId)
         {
-            this.RaiseEvent(new SupplierEvents.CompanyAdded(this.State.Id, companyId));
-        }
-
-        public void RemoveCompany(Guid companyId)
-        {
-            this.RaiseEvent(new SupplierEvents.CompanyRemoved(this.State.Id, companyId));
+            this.RaiseEvent(new SupplierEvents.CompanyChanged(this.State.Id, companyId));
         }
 
         public void ChangeNote(string note)
@@ -39,13 +34,13 @@ namespace eLogistics.Application.CQRS.Service.Domain
         public void AddBankAccount(BankAccount bankAccount)
         {
             if (!this.State.BankAccountList.Contains(bankAccount))
-                this.RaiseEvent(new CustomerEvents.BankAccountAdded(this.State.Id, bankAccount));
+                this.RaiseEvent(new SupplierEvents.BankAccountAdded(this.State.Id, bankAccount));
         }
 
         public void RemoveBankAccount(BankAccount bankAccount)
         {
             if (this.State.BankAccountList.Contains(bankAccount))
-                this.RaiseEvent(new CustomerEvents.BankAccountRemoved(this.State.Id, bankAccount));
+                this.RaiseEvent(new SupplierEvents.BankAccountRemoved(this.State.Id, bankAccount));
         }
     }
 }

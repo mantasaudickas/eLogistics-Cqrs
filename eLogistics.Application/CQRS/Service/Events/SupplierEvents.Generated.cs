@@ -30,25 +30,12 @@ namespace eLogistics.Application.CQRS.Service.Events
         }
 
         [DataContract]
-        public class CompanyAdded : Event
+        public class CompanyChanged : Event
         {
             [DataMember] public Guid SupplierId { get; private set; }
             [DataMember] public Guid CompanyId { get; private set; }
 
-            public CompanyAdded(Guid supplierId, Guid companyId) : base(supplierId)
-            {
-                SupplierId = supplierId;
-                CompanyId = companyId;
-            }
-        }
-
-        [DataContract]
-        public class CompanyRemoved : Event
-        {
-            [DataMember] public Guid SupplierId { get; private set; }
-            [DataMember] public Guid CompanyId { get; private set; }
-
-            public CompanyRemoved(Guid supplierId, Guid companyId) : base(supplierId)
+            public CompanyChanged(Guid supplierId, Guid companyId) : base(supplierId)
             {
                 SupplierId = supplierId;
                 CompanyId = companyId;
